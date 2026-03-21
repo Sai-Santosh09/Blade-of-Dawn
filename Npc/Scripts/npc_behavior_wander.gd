@@ -24,12 +24,12 @@ func _process(delta: float) -> void:
 
 	if Engine.is_editor_hint():
 		return
-	if _get_distance_to_original_pos() > wander_range * 32.0:
-		if _get_distance_to_original_pos() < _get_distance_to_original_pos(npc.direction):
-			npc.velocity *= -1
-			npc.direction *= -1
-			npc.update_direction(global_position + npc.direction)
-			npc.update_animation()
+	#if _get_distance_to_original_pos() > wander_range * 32.0:
+		#if _get_distance_to_original_pos() < _get_distance_to_original_pos(npc.direction):
+			#npc.velocity *= -1
+			#npc.direction *= -1
+			#npc.update_direction(global_position + npc.direction)
+			#npc.update_animation()
 
 
 func _get_distance_to_original_pos(delta : Vector2 = Vector2.ZERO) -> float:
@@ -44,11 +44,18 @@ func start() -> void:
 	npc.velocity = Vector2.ZERO
 	npc.update_animation()
 	await get_tree().create_timer( randf() * idle_duration + idle_duration * 0.5 ).timeout
-	#walk
 	if npc.do_behavior == false:
 		return
+	#walk
 	npc.state = "walk"
 	var _dir : Vector2 = DIRECTIONS[ randi_range(0, 3) ]
+	if _get_distance_to_original_pos() > wander_range * 32.0:
+		var dir_to_area : Vector2 = global_position.direction_to( original_position )
+		var best_directions : Array[ float ]
+		for d in DIRECTIONS:
+			best_directions.append( d.dot( dir_to_area ) )
+		_dir = DIRECTIONS[ best_directions.find( best_directions.max() ) ]
+		pass
 	npc.direction = _dir
 	npc.velocity = wander_speed * _dir
 	npc.update_direction( global_position + _dir )
