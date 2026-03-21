@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="NPCResource" load_steps=4 format=3 uid="uid://dsmigm3fywul"]
+[gd_resource type="Resource" script_class="NPCResource" format=3 uid="uid://dsmigm3fywul"]
 
 [ext_resource type="Texture2D" uid="uid://d0a80p3264j66" path="res://Npc/Sprites/portraits/hero_portrait.png" id="1_wxllr"]
 [ext_resource type="Script" uid="uid://cu0td8q1g7bkb" path="res://Npc/Scripts/npc_resource.gd" id="1_xtxur"]
