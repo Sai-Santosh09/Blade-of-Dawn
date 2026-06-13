@@ -4,9 +4,13 @@ signal shown
 signal hidden
 
 @onready var audio_stream_player: AudioStreamPlayer = $Control/AudioStreamPlayer
-@onready var button_save: Button = $Control/HBoxContainer/Button_Save
-@onready var button_load: Button = $Control/HBoxContainer/Button_Load
-@onready var item_description: Label = $Control/ItemDescription
+
+@onready var tab_container: TabContainer = $Control/TabContainer
+
+@onready var button_save: Button = $Control/TabContainer/System/VBoxContainer/Button_Save
+@onready var button_load: Button = $Control/TabContainer/System/VBoxContainer/Button_Load
+@onready var button_quit: Button = $Control/TabContainer/System/VBoxContainer/Button_Quit
+@onready var item_description: Label = $Control/TabContainer/Inventory/ItemDescription
 
 
 
@@ -17,6 +21,7 @@ func _ready() -> void:
 	hide_pause_menu()
 	button_save.pressed.connect( _on_save_pressed )
 	button_load.pressed.connect( _on_load_pressed )
+	button_quit.pressed.connect( _on_quit_pressed )
 	pass 
 
 
@@ -36,6 +41,7 @@ func show_pause_menu() -> void:
 	get_tree().paused = true
 	visible = true
 	is_paused = true
+	tab_container.current_tab = 0
 	shown.emit()
 
 
@@ -61,6 +67,10 @@ func _on_load_pressed() -> void:
 	await LevalManager.level_load_started
 	hide_pause_menu()
 	pass
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()
 
 
 func update_item_description( new_text : String ) -> void:

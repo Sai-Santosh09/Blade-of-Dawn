@@ -15,6 +15,17 @@ func _ready() -> void:
 	pass
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("test"):
+		
+		update_quest("Short Quest", "")
+		update_quest("Find the Flute", "", true)
+		update_quest("Long Quest", "step 1")
+		update_quest("Long Quest", "step 2")
+		print( "Quests : ", current_quests )
+		pass
+	pass
+
 
 func gather_quest_data() -> void:
 	#gather all the quests and add it in the quests Array
@@ -33,7 +44,7 @@ func update_quest( _title : String, _completed_step : String = "", _is_complete 
 		# Quest was not found - add it into current quests Array
 		var new_quest : Dictionary = { 
 				title = _title, 
-				is_complete = _completed_step, 
+				is_complete = _is_complete, 
 				completed_steps = [] 
 		}
 		
@@ -57,7 +68,11 @@ func update_quest( _title : String, _completed_step : String = "", _is_complete 
 		
 		# Display smth to show that quest is completed
 		if q.is_complete == true:
-			disperse_quest_rewards( find_quest_by_title( _title ) )
+			var quest_resourse : Quest = find_quest_by_title( _title )
+			if quest_resourse != null:
+				disperse_quest_rewards( quest_resourse )
+			else:
+				push_warning("No Quest resourse found for: " + _title)
 	pass
 
 
@@ -96,5 +111,24 @@ func get_quest_index_by_title( _title : String ) -> int:
 
 
 func sort_quests() -> void:
+	var active_quests : Array = []
+	var completed_quests : Array = []
+	for q in current_quests:
+		if q.is_complete:
+			completed_quests.append( q )
+		else:
+			active_quests.append( q )
+	
+	active_quests.sort_custom( sort_quests_ascending )
+	completed_quests.sort_custom( sort_quests_ascending )
+	
+	current_quests = active_quests
+	current_quests.append_array( completed_quests )
 	
 	pass
+
+
+func sort_quests_ascending( a , b ):
+	if a.title < b.title:
+		return true
+	return false
