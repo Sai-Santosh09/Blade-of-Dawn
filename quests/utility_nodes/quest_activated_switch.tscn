@@ -5,8 +5,6 @@
 
 [node name="QuestActivatedSwitch" type="Node2D" unique_id=1082728091]
 script = ExtResource("1_1a44c")
-remove_when_activated = null
-react_to_global_signal = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=686151302]
 z_index = 10

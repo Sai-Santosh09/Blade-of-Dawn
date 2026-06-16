@@ -11,6 +11,7 @@ var hearts : Array[ HeartGUI ] = []
 @onready var title_button: Button = $Control/GameOver/VBoxContainer/TitleButton
 @onready var animation_player: AnimationPlayer = $Control/GameOver/AnimationPlayer
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
+@onready var notification : NotificationUI = $Control/Notification
 
 @onready var boss_ui: Control = $Control/BossUI
 @onready var boss_hp_bar : TextureProgressBar = $Control/BossUI/TextureProgressBar
@@ -123,4 +124,9 @@ func hide_boss_health() -> void:
 
 func update_boss_health( hp : int, max_hp : int ) -> void:
 	boss_hp_bar.value = clampf( float(hp) / float(max_hp) * 100, 0, 100 )
+	pass
+
+
+func queue_notification( _title : String, _message : String ) -> void:
+	notification.add_notification_to_queue( _title , _message )
 	pass

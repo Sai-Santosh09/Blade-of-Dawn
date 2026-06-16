@@ -55,6 +55,7 @@ func update_quest( _title : String, _completed_step : String = "", _is_complete 
 		quest_updated.emit( new_quest )
 		
 		# display some kind of notification to show quest activation
+		PlayerHud.queue_notification( "Quest Started", _title )
 		pass
 	else:
 		# Quest was found, update it
@@ -70,19 +71,27 @@ func update_quest( _title : String, _completed_step : String = "", _is_complete 
 		if q.is_complete == true:
 			var quest_resourse : Quest = find_quest_by_title( _title )
 			if quest_resourse != null:
+				PlayerHud.queue_notification( "Quest Completed!", _title )
 				disperse_quest_rewards( quest_resourse )
 			else:
 				push_warning("No Quest resourse found for: " + _title)
+		else:
+			if _completed_step == "":
+				return
+			PlayerHud.queue_notification( "Quest Updated", _title + ": " + _completed_step )
 	pass
 
 
 
 func disperse_quest_rewards( _q : Quest ) -> void:
 	#Give XP and item rewards
+	var _message : String = str( _q.reward_xp ) + "xp"
 	PlayerManager.reward_xp( _q.reward_xp )
 	
 	for i in _q.reward_items:
 		PlayerManager.INVENTORY_DATA.add_item( i.item, i.quantity )
+		_message += ", " + i.item.name + " x" + str( i.quantity )
+	PlayerHud.queue_notification( "Quest Rewards Received!", _message )
 	pass
 
 
