@@ -18,7 +18,8 @@ var is_activated : bool = false
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
-	$Sprite2D.queue_free()
+	if has_node("Sprite2D"):
+		$Sprite2D.queue_free()
 	if react_to_global_signal == true:
 		QuestManager.quest_updated.connect( _on_quest_updated )
 	check_is_activated()

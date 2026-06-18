@@ -31,6 +31,7 @@ var damage_count : int = 0
 @onready var hand_01_side: Sprite2D = $BossNode/CloakSprite/Hand01_SIDE
 @onready var hand_02_side: Sprite2D = $BossNode/CloakSprite/Hand02_SIDE
 @onready var door_block: TileMapLayer = $"../DoorBlock"
+@onready var point_light_2d: PointLight2D = $BossNode/PointLight2D
 
 
 func _ready() -> void:
@@ -190,14 +191,20 @@ func play_audio( _a : AudioStream ) -> void:
 
 
 func defeat() -> void:
+	point_light_2d.enabled = false
 	animation_player.play( "destroy" )
 	enable_hit_boxes( false )
 	PlayerHud.hide_boss_health()
+	await animation_player.animation_finished
+	#Drop the flute
+	$ItemDropper.position = boss_node.position
+	$ItemDropper.drop_item()
+	$ItemDropper.drop_collected.connect( open_dungeon )
+
+func open_dungeon() -> void:
 	persistent_data_handler.set_value()
-	await animation_player.animation_finished 
 	door_block.enabled = false
-
-
+	pass
 
 
 func enable_hit_boxes( _v : bool = true ) -> void:

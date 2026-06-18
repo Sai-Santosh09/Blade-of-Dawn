@@ -22,7 +22,24 @@
 [ext_resource type="Resource" uid="uid://c2ww3ctnmwdv2" path="res://quests/collect_the_flute.tres" id="19_wrnjp"]
 [ext_resource type="PackedScene" uid="uid://cmhckh37k1re6" path="res://quests/utility_nodes/quest_advance_trigger.tscn" id="20_wrnjp"]
 [ext_resource type="Resource" uid="uid://bsmn376prok3y" path="res://quests/long_quest.tres" id="21_2rucc"]
+[ext_resource type="Script" uid="uid://bxta2tmh31tdw" path="res://quests/utility_nodes/quest_activated_switch.gd" id="21_d1jyu"]
 [ext_resource type="PackedScene" uid="uid://bs6765tj7qv5o" path="res://quests/utility_nodes/quest_activated_switch.tscn" id="23_xflnv"]
+
+[sub_resource type="GDScript" id="GDScript_d1jyu"]
+script/source = "extends Node
+
+
+@onready var quest_advance_trigger: QuestAdvanceTrigger = $\"..\"
+
+
+func _ready() -> void:
+	quest_advance_trigger.advanced.connect( quest_complete )
+
+
+func quest_complete() -> void:
+	PlayerManager.INVENTORY_DATA.use_item( load(\"res://Items/magical_flute.tres\") )
+	pass
+"
 
 [node name="02" type="Node2D" unique_id=789288352]
 script = ExtResource("1_x70af")
@@ -182,7 +199,19 @@ text = "Geez!! what a lousy hero you are.. You are more like a anti-hero.."
 npc_info = ExtResource("10_krbdk")
 metadata/_custom_type_script = "uid://1sfkun374vc7"
 
-[node name="QuestActivatedSwitch2" parent="NPC2" unique_id=1886527273 instance=ExtResource("23_xflnv")]
+[node name="QuestActivatedSwitch3" type="Node2D" parent="NPC2" unique_id=1733159412]
+script = ExtResource("21_d1jyu")
+check_type = 3
+remove_when_activated = true
+react_to_global_signal = true
+linked_quest = ExtResource("19_wrnjp")
+quest_complete = true
+settings_summary = "UPDATE QUEST:
+Quest: Find the Flute
+Checking if quest is completed"
+metadata/_custom_type_script = "uid://bxta2tmh31tdw"
+
+[node name="QuestActivatedSwitch2" parent="NPC2/QuestActivatedSwitch3" unique_id=1886527273 instance=ExtResource("23_xflnv")]
 position = Vector2(0, -28)
 react_to_global_signal = true
 linked_quest = ExtResource("19_wrnjp")
@@ -190,15 +219,57 @@ settings_summary = "UPDATE QUEST:
 Quest: Find the Flute
 Checking if player has quest"
 
-[node name="DialogInteraction" parent="NPC2/QuestActivatedSwitch2" unique_id=553260935 instance=ExtResource("10_r3wde")]
+[node name="QuestActivatedSwitch2" parent="NPC2/QuestActivatedSwitch3/QuestActivatedSwitch2" unique_id=747531700 instance=ExtResource("23_xflnv")]
+check_type = 2
+remove_when_activated = true
+react_to_global_signal = true
+linked_quest = ExtResource("19_wrnjp")
+quest_step = 3
+settings_summary = "UPDATE QUEST:
+Quest: Find the Flute
+Check if player is on step: return the magical flute."
+
+[node name="DialogInteraction" parent="NPC2/QuestActivatedSwitch3/QuestActivatedSwitch2/QuestActivatedSwitch2" unique_id=553260935 instance=ExtResource("10_r3wde")]
 position = Vector2(0, 28)
 enabled = true
 
-[node name="DialogText" type="Node" parent="NPC2/QuestActivatedSwitch2/DialogInteraction" unique_id=2042933862]
+[node name="DialogText" type="Node" parent="NPC2/QuestActivatedSwitch3/QuestActivatedSwitch2/QuestActivatedSwitch2/DialogInteraction" unique_id=2042933862]
 script = ExtResource("11_mxs1d")
 text = "Thank you Hero!! I lost my flute in the cave to the north..."
 npc_info = ExtResource("10_krbdk")
 metadata/_custom_type_script = "uid://1sfkun374vc7"
+
+[node name="QuestActivatedSwitch" parent="NPC2/QuestActivatedSwitch3/QuestActivatedSwitch2" unique_id=2043450175 instance=ExtResource("23_xflnv")]
+check_type = 2
+react_to_global_signal = true
+linked_quest = ExtResource("19_wrnjp")
+quest_step = 3
+settings_summary = "UPDATE QUEST:
+Quest: Find the Flute
+Check if player is on step: return the magical flute."
+
+[node name="DialogInteraction2" parent="NPC2/QuestActivatedSwitch3/QuestActivatedSwitch2/QuestActivatedSwitch" unique_id=999734837 instance=ExtResource("10_r3wde")]
+position = Vector2(0, 28)
+enabled = true
+
+[node name="DialogText" type="Node" parent="NPC2/QuestActivatedSwitch3/QuestActivatedSwitch2/QuestActivatedSwitch/DialogInteraction2" unique_id=1306704899]
+script = ExtResource("11_mxs1d")
+text = "Damn you found the flute!!! That's what I expect from a hero. It's not much, but here's a reward."
+npc_info = ExtResource("10_krbdk")
+metadata/_custom_type_script = "uid://1sfkun374vc7"
+
+[node name="QuestAdvanceTrigger" parent="NPC2/QuestActivatedSwitch3/QuestActivatedSwitch2/QuestActivatedSwitch/DialogInteraction2" unique_id=1106245635 instance=ExtResource("20_wrnjp")]
+signal_name = "finished"
+linked_quest = ExtResource("19_wrnjp")
+quest_step = 3
+quest_complete = true
+settings_summary = "UPDATE QUEST:
+Quest: Find the Flute
+Step: 3 - return the magical flute.
+Complete: true"
+
+[node name="Node" type="Node" parent="NPC2/QuestActivatedSwitch3/QuestActivatedSwitch2/QuestActivatedSwitch/DialogInteraction2/QuestAdvanceTrigger" unique_id=522103670]
+script = SubResource("GDScript_d1jyu")
 
 [node name="Pot" parent="." unique_id=1433446715 instance=ExtResource("18_j3pfp")]
 position = Vector2(159, 209)

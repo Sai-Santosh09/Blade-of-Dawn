@@ -6,8 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://d1vm7yqhgic6u" path="res://tile maps/dungeon_tiles_01.tscn" id="3_uejuh"]
 [ext_resource type="PackedScene" uid="uid://3jnnokf0c7ya" path="res://Levels/level_transition.tscn" id="4_ux7ia"]
 [ext_resource type="PackedScene" uid="uid://blaae8rkmeplc" path="res://Interactables/dungeon/pressure_plate.tscn" id="5_swvnj"]
+[ext_resource type="PackedScene" uid="uid://bs6765tj7qv5o" path="res://quests/utility_nodes/quest_activated_switch.tscn" id="6_54q72"]
 [ext_resource type="PackedScene" uid="uid://comybghhdlh18" path="res://Interactables/dungeon/barred_door.tscn" id="6_m3xjo"]
+[ext_resource type="PackedScene" uid="uid://cmhckh37k1re6" path="res://quests/utility_nodes/quest_advance_trigger.tscn" id="6_sha80"]
 [ext_resource type="PackedScene" uid="uid://b5jyaae4ski2c" path="res://Interactables/dungeon/pushable_statue.tscn" id="7_4dhgi"]
+[ext_resource type="Resource" uid="uid://c2ww3ctnmwdv2" path="res://quests/collect_the_flute.tres" id="7_54q72"]
 
 [node name="01" type="Node2D" unique_id=800470413]
 script = ExtResource("1_2la2r")
@@ -26,6 +29,25 @@ target_transition_area = "LevelTransition3"
 center_player = true
 side = 3
 
+[node name="QuestActivatedSwitch" parent="LevelTransition" unique_id=1082728091 instance=ExtResource("6_54q72")]
+check_type = 1
+remove_when_activated = true
+free_on_remove = true
+react_to_global_signal = true
+linked_quest = ExtResource("7_54q72")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+Quest: Find the Flute
+Checking if player has completed step: find the cave entrance"
+
+[node name="QuestAdvanceTrigger" parent="LevelTransition/QuestActivatedSwitch" unique_id=1831730233 instance=ExtResource("6_sha80")]
+linked_quest = ExtResource("7_54q72")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+Quest: Find the Flute
+Step: 1 - find the cave entrance
+Complete: false"
+
 [node name="LevelTransition2" parent="." unique_id=661414462 instance=ExtResource("4_ux7ia")]
 position = Vector2(256, -16)
 level = "uid://bcs4rcwk1qxb5"
@@ -42,5 +64,6 @@ position = Vector2(340, 66)
 persistent = true
 persistent_location = Vector2(176, 66)
 
+[connection signal="entered_from_here" from="LevelTransition" to="LevelTransition/QuestActivatedSwitch/QuestAdvanceTrigger" method="advance_quest"]
 [connection signal="activated" from="PressurePlate" to="BarredDoor" method="open_door"]
 [connection signal="deactivated" from="PressurePlate" to="BarredDoor" method="closed_door"]

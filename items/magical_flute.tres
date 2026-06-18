@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://xbwl06hd43h6"]
+
+[ext_resource type="Script" uid="uid://c7grt0shs7ns7" path="res://Items/item_effects/item_effect.gd" id="1_agugj"]
+[ext_resource type="Script" uid="uid://cmmh17r1gdq1l" path="res://Items/Scripts/item_data.gd" id="2_tv0w0"]
+[ext_resource type="Texture2D" uid="uid://5j45iwmtk0pi" path="res://Items/Sprites/flute.png" id="3_tv0w0"]
+
+[resource]
+script = ExtResource("2_tv0w0")
+name = "Nero's Magical Flute"
+description = "This is the magical flute which was lost because of Nero in the dungeon..."
+texture = ExtResource("3_tv0w0")
+metadata/_custom_type_script = "uid://cmmh17r1gdq1l"
