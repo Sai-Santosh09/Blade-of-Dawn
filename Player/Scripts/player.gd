@@ -21,9 +21,13 @@ signal player_damaged( hurt_box : HurtBox )
 
 
 var invulnerable : bool = false
-var hp : int = 6
-var max_hp : int = 6
+var hp : int = 10
+var max_hp : int = 10
+var level : int = 1
+var xp : int = 0
 
+var attack : int = 1
+var defense : int = 1
 
 func _ready():
 	PlayerManager.player = self

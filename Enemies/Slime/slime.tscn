@@ -788,6 +788,7 @@ collision_layer = 256
 collision_mask = 16
 script = ExtResource("1_t8cwk")
 hp = 4
+xp_reward = 10
 
 [node name="HurtBox" parent="." unique_id=1334338482 instance=ExtResource("2_fjr0p")]
 position = Vector2(0, -8)

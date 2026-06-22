@@ -552,14 +552,17 @@ quantity = 2
 [node name="Goblin" parent="." unique_id=636764738 instance=ExtResource("9_b60gt")]
 position = Vector2(201, -101)
 hp = 2
+xp_reward = 10
 
 [node name="Goblin2" parent="." unique_id=275214460 instance=ExtResource("9_b60gt")]
 position = Vector2(343, -102)
 hp = 2
+xp_reward = 10
 
 [node name="Goblin3" parent="." unique_id=2018955828 instance=ExtResource("9_b60gt")]
 position = Vector2(-106, 94)
 hp = 2
+xp_reward = 10
 
 [node name="LevelTransition3" parent="." unique_id=960929775 instance=ExtResource("4_4t7i1")]
 position = Vector2(272, -138)

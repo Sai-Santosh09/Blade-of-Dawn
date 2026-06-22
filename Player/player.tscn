@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://6ule42j8g1yt"]
+[gd_scene format=3 uid="uid://6ule42j8g1yt"]
 
 [ext_resource type="Script" uid="uid://cdhwtta44ndoy" path="res://Player/Scripts/player.gd" id="1_dkpta"]
 [ext_resource type="Texture2D" uid="uid://dg2d1f7u42qfk" path="res://Player/Sprites/player_sprite.png" id="2_b1ygp"]
@@ -1446,18 +1446,18 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_o28un"]
 radius = 25.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=254493816]
 position = Vector2(0, 1)
 collision_mask = 16
 motion_mode = 1
 wall_min_slide_angle = 0.17453292
 script = ExtResource("1_dkpta")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=786328992]
 shape = SubResource("CircleShape2D_wt17y")
 debug_color = Color(0, 0.6, 0.69803923, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1793994051]
 texture_filter = 1
 position = Vector2(0, -20)
 scale = Vector2(0.9166667, 1)
@@ -1465,77 +1465,73 @@ texture = ExtResource("2_b1ygp")
 hframes = 16
 vframes = 8
 
-[node name="ShadowSprite" type="Sprite2D" parent="Sprite2D"]
+[node name="ShadowSprite" type="Sprite2D" parent="Sprite2D" unique_id=2033145421]
 modulate = Color(0, 0, 0, 0.78431374)
 show_behind_parent = true
 position = Vector2(0, 20)
 texture = ExtResource("4_b1ygp")
 
-[node name="AttackEffectSprite" type="Sprite2D" parent="Sprite2D"]
+[node name="AttackEffectSprite" type="Sprite2D" parent="Sprite2D" unique_id=1734352029]
 position = Vector2(0, 10)
 texture = ExtResource("3_pisgm")
 hframes = 12
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D/AttackEffectSprite"]
-libraries = {
-&"": SubResource("AnimationLibrary_wae3t")
-}
-autoplay = "no_attack"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D/AttackEffectSprite" unique_id=293621431]
+libraries/ = SubResource("AnimationLibrary_wae3t")
+autoplay = &"no_attack"
 
-[node name="AttackHurtBox" parent="Sprite2D" instance=ExtResource("5_o28un")]
+[node name="AttackHurtBox" parent="Sprite2D" unique_id=1052641925 instance=ExtResource("5_o28un")]
 unique_name_in_owner = true
 position = Vector2(0, 34)
 scale = Vector2(1.0909091, 1)
 collision_mask = 256
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/AttackHurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/AttackHurtBox" unique_id=1366971065]
 shape = SubResource("CircleShape2D_bugwf")
 debug_color = Color(1, 0.03876, 0.22935726, 0)
 
-[node name="ChargeHurtBox" parent="Sprite2D" instance=ExtResource("5_o28un")]
+[node name="ChargeHurtBox" parent="Sprite2D" unique_id=1914378764 instance=ExtResource("5_o28un")]
 unique_name_in_owner = true
 scale = Vector2(1.0909091, 1)
 collision_mask = 256
 monitoring = false
 damage = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/ChargeHurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/ChargeHurtBox" unique_id=337241669]
 position = Vector2(0, 16)
 shape = SubResource("CapsuleShape2D_o28un")
 debug_color = Color(1, 0.03876, 0.22935726, 0)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Sprite2D/ChargeHurtBox"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Sprite2D/ChargeHurtBox" unique_id=978960366]
 position = Vector2(-6, 17)
 amount = 4
 lifetime = 0.5
 process_material = SubResource("ParticleProcessMaterial_8mwp6")
 
-[node name="ChargeSpinHurtBox" parent="Sprite2D" instance=ExtResource("5_o28un")]
+[node name="ChargeSpinHurtBox" parent="Sprite2D" unique_id=775527405 instance=ExtResource("5_o28un")]
 unique_name_in_owner = true
 scale = Vector2(1.0909091, 1)
 collision_mask = 256
 monitoring = false
 damage = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/ChargeSpinHurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/ChargeSpinHurtBox" unique_id=815428738]
 shape = SubResource("CircleShape2D_n471f")
 debug_color = Color(1, 0.03876, 0.22935726, 0)
 
-[node name="SpinEffectSprite2D" type="Sprite2D" parent="Sprite2D"]
+[node name="SpinEffectSprite2D" type="Sprite2D" parent="Sprite2D" unique_id=1211896374]
 show_behind_parent = true
 texture = ExtResource("6_hshwv")
 hframes = 8
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D/SpinEffectSprite2D"]
-libraries = {
-&"": SubResource("AnimationLibrary_sm0op")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D/SpinEffectSprite2D" unique_id=684114889]
+libraries/ = SubResource("AnimationLibrary_sm0op")
 
-[node name="HeldItem" type="Node2D" parent="Sprite2D"]
+[node name="HeldItem" type="Node2D" parent="Sprite2D" unique_id=778852563]
 position = Vector2(0, 20)
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/HeldItem"]
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/HeldItem" unique_id=1846518714]
 visible = false
 position = Vector2(0, -9)
 texture = ExtResource("7_gpjlu")
@@ -1543,101 +1539,97 @@ hframes = 16
 vframes = 3
 frame = 4
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_00tjw")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2116520282]
+libraries/ = SubResource("AnimationLibrary_00tjw")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." unique_id=1250159707]
 script = ExtResource("6_n471f")
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1482638792]
 script = ExtResource("7_7emwf")
 
-[node name="Walk" type="Node" parent="StateMachine"]
+[node name="Walk" type="Node" parent="StateMachine" unique_id=1623590854]
 script = ExtResource("8_hshwv")
 
-[node name="Attack" type="Node" parent="StateMachine"]
+[node name="Attack" type="Node" parent="StateMachine" unique_id=1124464427]
 script = ExtResource("9_gpjlu")
 attack_sound = ExtResource("10_8mwp6")
 
-[node name="Stun" type="Node" parent="StateMachine"]
+[node name="Stun" type="Node" parent="StateMachine" unique_id=387582126]
 script = ExtResource("11_qemgg")
 
-[node name="ChargeAttack" type="Node" parent="StateMachine"]
+[node name="ChargeAttack" type="Node" parent="StateMachine" unique_id=788023918]
 script = ExtResource("12_o28un")
 sfx_charged = ExtResource("13_7emwf")
 sfx_spin = ExtResource("14_hshwv")
 
-[node name="Lift" type="Node" parent="StateMachine"]
+[node name="Lift" type="Node" parent="StateMachine" unique_id=1307477570]
 script = ExtResource("17_8mwp6")
 lift_audio = ExtResource("18_8viyr")
 
-[node name="Carry" type="Node" parent="StateMachine"]
+[node name="Carry" type="Node" parent="StateMachine" unique_id=1520408456]
 script = ExtResource("18_qemgg")
 throw_audio = ExtResource("20_sm0op")
 
-[node name="Death" type="Node" parent="StateMachine"]
+[node name="Death" type="Node" parent="StateMachine" unique_id=1449085593]
 script = ExtResource("21_76lrf")
 exhaust_audio = ExtResource("22_efx54")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1001298927]
 position = Vector2(0, -1)
 script = ExtResource("12_8viyr")
 shake_decay = 2.0
 
-[node name="Audio" type="Node2D" parent="."]
+[node name="Audio" type="Node2D" parent="." unique_id=661712557]
 position = Vector2(0, -1)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio" unique_id=496017334]
 max_polyphony = 8
 
-[node name="Interactions" type="Node2D" parent="."]
+[node name="Interactions" type="Node2D" parent="." unique_id=1019887142]
 position = Vector2(0, -1)
 script = ExtResource("13_sm0op")
 
-[node name="Area2D" type="Area2D" parent="Interactions"]
+[node name="Area2D" type="Area2D" parent="Interactions" unique_id=1777488970]
 collision_layer = 4
 collision_mask = 0
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Area2D" unique_id=1895211558]
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_755ss")
 debug_color = Color(0, 0.8509804, 0.015686275, 0)
 
-[node name="PushArea" type="Area2D" parent="Interactions"]
+[node name="PushArea" type="Area2D" parent="Interactions" unique_id=24297876]
 collision_layer = 0
 collision_mask = 16
 monitorable = false
 script = ExtResource("14_lfmf2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/PushArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/PushArea" unique_id=2009170607]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_pisgm")
 debug_color = Color(0.9882353, 0, 0.96862745, 0)
 
-[node name="HitBox" parent="." instance=ExtResource("14_76lrf")]
+[node name="HitBox" parent="." unique_id=1050197369 instance=ExtResource("14_76lrf")]
 position = Vector2(0, -1)
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=496565341]
 position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_efx54")
 debug_color = Color(0.9843137, 0.9882353, 0, 0)
 
-[node name="EffectAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_8awjf")
-}
+[node name="EffectAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1350680243]
+libraries/ = SubResource("AnimationLibrary_8awjf")
 
-[node name="Abilities" type="Node" parent="."]
+[node name="Abilities" type="Node" parent="." unique_id=668100937]
 script = ExtResource("17_pisgm")
 
-[node name="ItemMagnet" parent="." instance=ExtResource("18_b1ygp")]
+[node name="ItemMagnet" parent="." unique_id=337767637 instance=ExtResource("18_b1ygp")]
 position = Vector2(0, -16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemMagnet"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemMagnet" unique_id=805038279]
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_o28un")
 debug_color = Color(0.8901186, 0, 0.79655224, 0)

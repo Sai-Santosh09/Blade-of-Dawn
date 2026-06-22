@@ -6,12 +6,13 @@ const INVENTORY_DATA : InventoryData = preload("res://GUI/pause_menu/inventory/p
 
 signal camera_shook( trauma : float)
 signal interact_pressed
+signal player_leveled_up
 
 var interact_handled : bool = true
 var player : Player
 var player_spawned : bool = false
 
-var xp : int = 0
+var level_requirments = [ 0, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 2500, 5000, 7500, 10000, 15000, 20000 ]
 
 func _ready() -> void:
 	add_player_instance()
@@ -32,8 +33,13 @@ func set_health( hp : int, max_hp : int ) -> void:
 
 
 func reward_xp( _xp : int ) -> void:
-	xp += _xp
-	print( "XP = ", str( xp ) )
+	player.xp += _xp
+	#check for level UPs
+	if player.xp >= level_requirments[ player.level ]:
+		player.level += 1
+		player.attack += 1
+		player.defense += 1
+		player_leveled_up.emit()
 
 
 func set_player_position( _new_pos : Vector2 ) -> void:
