@@ -12,7 +12,7 @@ var interact_handled : bool = true
 var player : Player
 var player_spawned : bool = false
 
-var level_requirments = [ 0, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 2500, 5000, 7500, 10000, 15000, 20000 ]
+var level_requirments = [ 0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 2500, 5000, 7500, 10000, 15000, 20000 ]
 
 func _ready() -> void:
 	add_player_instance()
@@ -35,11 +35,18 @@ func set_health( hp : int, max_hp : int ) -> void:
 func reward_xp( _xp : int ) -> void:
 	player.xp += _xp
 	#check for level UPs
+	check_forlevel_advance()
+
+func check_forlevel_advance() -> void:
+	if player.level >= level_requirments.size():
+		return
 	if player.xp >= level_requirments[ player.level ]:
 		player.level += 1
 		player.attack += 1
 		player.defense += 1
 		player_leveled_up.emit()
+		check_forlevel_advance()
+	pass
 
 
 func set_player_position( _new_pos : Vector2 ) -> void:
