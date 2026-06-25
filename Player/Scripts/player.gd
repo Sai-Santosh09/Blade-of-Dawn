@@ -26,7 +26,10 @@ var max_hp : int = 10
 var level : int = 1
 var xp : int = 0
 
-var attack : int = 1
+var attack : int = 1 :
+	set( v ):
+		attack = v
+		update_damage_values()
 var defense : int = 1
 
 func _ready():
@@ -34,6 +37,8 @@ func _ready():
 	state_machine.Initialize(self)
 	hit_box.Damaged.connect( _take_damage )
 	update_hp(99)
+	update_damage_values()
+	#PlayerManager.player_leveled_up.connect( update_damage_values )
 	pass 
 
 
@@ -91,7 +96,11 @@ func _take_damage( hurt_box : HurtBox ) -> void:
 	if invulnerable == true:
 		return
 	if hp > 0:
-		update_hp( -hurt_box.damage )
+		var dmg : int = hurt_box.damage
+		
+		if dmg > 0:
+			dmg = clampi( dmg - defense, 1, dmg )
+		update_hp( -dmg )
 		player_damaged.emit( hurt_box )
 	
 	pass
@@ -124,3 +133,9 @@ func pickup_item( _t : Throwable ) -> void:
 func revive_player() -> void:
 	update_hp( 99 )
 	state_machine.ChangeState( $StateMachine/Idle )
+
+
+func update_damage_values() -> void:
+	%AttackHurtBox.damage = attack 
+	%ChargeSpinHurtBox.damage = attack * 2
+	pass

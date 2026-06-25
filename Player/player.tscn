@@ -1514,7 +1514,7 @@ unique_name_in_owner = true
 scale = Vector2(1.0909091, 1)
 collision_mask = 256
 monitoring = false
-damage = 3
+damage = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/ChargeSpinHurtBox" unique_id=815428738]
 shape = SubResource("CircleShape2D_n471f")
