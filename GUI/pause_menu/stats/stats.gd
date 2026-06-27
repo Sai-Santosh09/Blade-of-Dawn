@@ -1,10 +1,12 @@
 class_name Stats extends PanelContainer
 
 
-@onready var label_level: Label = $VBoxContainer/HBoxContainer/Label2
-@onready var label_xp: Label = $VBoxContainer/HBoxContainer2/Label2
-@onready var label_attack: Label = $VBoxContainer/HBoxContainer3/Label2
-@onready var label_defense: Label = $VBoxContainer/HBoxContainer4/Label2
+@onready var label_level: Label = %Label_lvl
+@onready var label_xp: Label = %Label_xp
+@onready var label_attack: Label = %Label_attack
+@onready var label_defense: Label = %Label_defense
+@onready var label_attack_change: Label = %Label_attack_change
+@onready var label_defense_change: Label = %Label_defense_change
 
 
 func _ready() -> void:

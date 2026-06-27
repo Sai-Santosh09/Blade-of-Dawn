@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://dge2ewb34lll6" path="res://GUI/fonts/m5x7.ttf" id="3_iqcer"]
 [ext_resource type="PackedScene" uid="uid://pc5nda8lr1bl" path="res://GUI/pause_menu/inventory/inventory_slot.tscn" id="3_rsqrg"]
 [ext_resource type="Resource" uid="uid://byleoyua0ac7b" path="res://GUI/pause_menu/inventory/player_inventory.tres" id="4_ewgu5"]
+[ext_resource type="Texture2D" uid="uid://0op6yvpsflsw" path="res://Items/Sprites/gear.png" id="7_u3762"]
 [ext_resource type="PackedScene" uid="uid://da4gimp7fevn2" path="res://GUI/pause_menu/stats/stats.tscn" id="8_40d0i"]
 [ext_resource type="PackedScene" uid="uid://de0g5udxkj33u" path="res://GUI/pause_menu/quests/quest_item.tscn" id="8_dvxeg"]
 [ext_resource type="Script" uid="uid://dbjmvhxfo2ht7" path="res://GUI/pause_menu/quests_ui.gd" id="8_iqcer"]
@@ -26,6 +27,31 @@ texture_margin_left = 14.0
 texture_margin_top = 14.0
 texture_margin_right = 14.0
 texture_margin_bottom = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvrss"]
+atlas = ExtResource("7_u3762")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u3762"]
+load_path = "res://.godot/imported/gear.png-ceafdd2eba1776b0de2c4d025e4126be.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgl3m"]
+atlas = SubResource("CompressedTexture2D_u3762")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ak53x"]
+load_path = "res://.godot/imported/gear.png-ceafdd2eba1776b0de2c4d025e4126be.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00kwt"]
+atlas = SubResource("CompressedTexture2D_ak53x")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1oddi"]
+load_path = "res://.godot/imported/gear.png-ceafdd2eba1776b0de2c4d025e4126be.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syaa3"]
+atlas = SubResource("CompressedTexture2D_1oddi")
+region = Rect2(16, 16, 16, 16)
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1805321594]
 process_mode = 3
@@ -87,9 +113,9 @@ metadata/_tab_index = 0
 [node name="PanelContainer" type="PanelContainer" parent="Control/TabContainer/Inventory" unique_id=504332702]
 layout_mode = 0
 offset_left = 29.0
-offset_top = 26.0
+offset_top = 23.0
 offset_right = 225.0
-offset_bottom = 114.0
+offset_bottom = 183.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_36pfd")
 
 [node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/PanelContainer" unique_id=885431724]
@@ -128,6 +154,122 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dvxeg")
 theme_override_font_sizes/font_size = 16
 
+[node name="InventorySlot7" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=102678386 instance=ExtResource("3_rsqrg")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvxeg")
+theme_override_font_sizes/font_size = 16
+
+[node name="InventorySlot8" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=548749617 instance=ExtResource("3_rsqrg")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvxeg")
+theme_override_font_sizes/font_size = 16
+
+[node name="InventorySlot9" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=1807192386 instance=ExtResource("3_rsqrg")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvxeg")
+theme_override_font_sizes/font_size = 16
+
+[node name="InventorySlot10" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=710577730 instance=ExtResource("3_rsqrg")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvxeg")
+theme_override_font_sizes/font_size = 16
+
+[node name="InventorySlot11" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=449132515 instance=ExtResource("3_rsqrg")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvxeg")
+theme_override_font_sizes/font_size = 16
+
+[node name="InventorySlot12" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=1733464583 instance=ExtResource("3_rsqrg")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvxeg")
+theme_override_font_sizes/font_size = 16
+
+[node name="InventorySlot13" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=1690701953 instance=ExtResource("3_rsqrg")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvxeg")
+theme_override_font_sizes/font_size = 16
+
+[node name="InventorySlot14" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=233302097 instance=ExtResource("3_rsqrg")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvxeg")
+theme_override_font_sizes/font_size = 16
+
+[node name="InventorySlot15" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=1688137146 instance=ExtResource("3_rsqrg")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvxeg")
+theme_override_font_sizes/font_size = 16
+
+[node name="InventorySlot16" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=1781260403 instance=ExtResource("3_rsqrg")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvxeg")
+theme_override_font_sizes/font_size = 16
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/TabContainer/Inventory" unique_id=1100730149]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 95.0
+offset_right = 453.0
+offset_bottom = 183.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_36pfd")
+
+[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/PanelContainer2" unique_id=202777019]
+layout_mode = 2
+columns = 5
+
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=1675918867]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_cvrss")
+stretch_mode = 3
+
+[node name="InventorySlot_Armour" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=2002000932 instance=ExtResource("3_rsqrg")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvxeg")
+theme_override_font_sizes/font_size = 16
+
+[node name="TextureRect5" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=1811868322]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+stretch_mode = 3
+
+[node name="TextureRect6" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=1013015292]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_fgl3m")
+stretch_mode = 3
+
+[node name="InventorySlot_Amulet" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=793588148 instance=ExtResource("3_rsqrg")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvxeg")
+theme_override_font_sizes/font_size = 16
+
+[node name="TextureRect3" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=161263384]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_00kwt")
+stretch_mode = 3
+
+[node name="InventorySlot_Weapon" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=112423114 instance=ExtResource("3_rsqrg")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvxeg")
+theme_override_font_sizes/font_size = 16
+
+[node name="TextureRect7" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=1703521751]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+stretch_mode = 3
+
+[node name="TextureRect8" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=572031974]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_syaa3")
+stretch_mode = 3
+
+[node name="InventorySlot_Ring" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=1113250077 instance=ExtResource("3_rsqrg")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvxeg")
+theme_override_font_sizes/font_size = 16
+
 [node name="ItemDescription" type="Label" parent="Control/TabContainer/Inventory" unique_id=488882743]
 modulate = Color(1, 1, 1, 0.78431374)
 layout_mode = 1
@@ -136,10 +278,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -206.0
-offset_top = 6.5
-offset_right = -20.0
-offset_bottom = 48.5
+offset_left = -208.0
+offset_top = 82.5
+offset_right = 213.0
+offset_bottom = 124.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_iqcer")
@@ -149,10 +291,10 @@ autowrap_mode = 2
 
 [node name="Stats" parent="Control/TabContainer/Inventory" unique_id=136496717 instance=ExtResource("8_40d0i")]
 layout_mode = 0
-offset_left = 260.0
-offset_top = 26.0
-offset_right = 446.0
-offset_bottom = 130.0
+offset_left = 257.0
+offset_top = 25.0
+offset_right = 453.0
+offset_bottom = 84.0
 
 [node name="Quests" type="Control" parent="Control/TabContainer" unique_id=291802769]
 visible = false
