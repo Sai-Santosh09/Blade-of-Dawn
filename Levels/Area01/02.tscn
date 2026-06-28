@@ -18,10 +18,8 @@
 [ext_resource type="Script" uid="uid://dxpsriu3mlght" path="res://Interactables/dialog/scripts/dialog_choice.gd" id="16_5l2i7"]
 [ext_resource type="Script" uid="uid://cb5n5wpgyk8h2" path="res://Interactables/dialog/scripts/dialog_branch.gd" id="17_xiy2e"]
 [ext_resource type="PackedScene" uid="uid://6dlppqfo0wyr" path="res://Props/pots/pot.tscn" id="18_j3pfp"]
-[ext_resource type="PackedScene" uid="uid://blaae8rkmeplc" path="res://Interactables/dungeon/pressure_plate.tscn" id="19_2rucc"]
 [ext_resource type="Resource" uid="uid://c2ww3ctnmwdv2" path="res://quests/collect_the_flute.tres" id="19_wrnjp"]
 [ext_resource type="PackedScene" uid="uid://cmhckh37k1re6" path="res://quests/utility_nodes/quest_advance_trigger.tscn" id="20_wrnjp"]
-[ext_resource type="Resource" uid="uid://bsmn376prok3y" path="res://quests/long_quest.tres" id="21_2rucc"]
 [ext_resource type="Script" uid="uid://bxta2tmh31tdw" path="res://quests/utility_nodes/quest_activated_switch.gd" id="21_d1jyu"]
 [ext_resource type="PackedScene" uid="uid://bs6765tj7qv5o" path="res://quests/utility_nodes/quest_activated_switch.tscn" id="23_xflnv"]
 
@@ -273,67 +271,3 @@ script = SubResource("GDScript_d1jyu")
 
 [node name="Pot" parent="." unique_id=1433446715 instance=ExtResource("18_j3pfp")]
 position = Vector2(159, 209)
-
-[node name="PressurePlate" parent="." unique_id=1503426370 instance=ExtResource("19_2rucc")]
-position = Vector2(405, 130)
-
-[node name="QuestAdvanceTrigger" parent="PressurePlate" unique_id=604402515 instance=ExtResource("20_wrnjp")]
-signal_name = "activated"
-linked_quest = ExtResource("21_2rucc")
-settings_summary = "UPDATE QUEST:
-Quest: Long Quest
-Step: 0 - N/A
-Complete: false"
-
-[node name="QuestActivatedSwitch" parent="." unique_id=1259651406 instance=ExtResource("23_xflnv")]
-position = Vector2(450, 129)
-react_to_global_signal = true
-linked_quest = ExtResource("21_2rucc")
-settings_summary = "UPDATE QUEST:
-Quest: Long Quest
-Checking if player has quest"
-
-[node name="PressurePlate2" parent="QuestActivatedSwitch" unique_id=1524429392 instance=ExtResource("19_2rucc")]
-
-[node name="QuestAdvanceTrigger" parent="QuestActivatedSwitch/PressurePlate2" unique_id=229971648 instance=ExtResource("20_wrnjp")]
-signal_name = "activated"
-linked_quest = ExtResource("21_2rucc")
-quest_step = 1
-settings_summary = "UPDATE QUEST:
-Quest: Long Quest
-Step: 1 - Step 1
-Complete: false"
-
-[node name="QuestActivatedSwitch2" parent="." unique_id=1758883532 instance=ExtResource("23_xflnv")]
-position = Vector2(493, 129)
-check_type = 2
-react_to_global_signal = true
-linked_quest = ExtResource("21_2rucc")
-quest_step = 2
-settings_summary = "UPDATE QUEST:
-Quest: Long Quest
-Check if player is on step: step 2"
-
-[node name="PressurePlate3" parent="QuestActivatedSwitch2" unique_id=1120349169 instance=ExtResource("19_2rucc")]
-
-[node name="QuestAdvanceTrigger" parent="QuestActivatedSwitch2/PressurePlate3" unique_id=862576943 instance=ExtResource("20_wrnjp")]
-signal_name = "activated"
-linked_quest = ExtResource("21_2rucc")
-quest_step = 2
-quest_complete = true
-settings_summary = "UPDATE QUEST:
-Quest: Long Quest
-Step: 2 - step 2
-Complete: true"
-
-[node name="QuestActivatedSwitch3" parent="." unique_id=89047079 instance=ExtResource("23_xflnv")]
-position = Vector2(592, 140)
-check_type = 3
-remove_when_activated = true
-react_to_global_signal = true
-linked_quest = ExtResource("21_2rucc")
-settings_summary = "UPDATE QUEST:
-Quest: Long Quest
-Checking if quest is completed"
-
-[node name="Pot" parent="QuestActivatedSwitch3" unique_id=1944363921 instance=ExtResource("18_j3pfp")]

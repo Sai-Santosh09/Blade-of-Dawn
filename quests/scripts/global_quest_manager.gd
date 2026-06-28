@@ -32,7 +32,7 @@ func gather_quest_data() -> void:
 	var quest_files : PackedStringArray = DirAccess.get_files_at( QUEST_DATA_LOCATION )
 	quests.clear()
 	for q in quest_files:
-		quests.append( load( QUEST_DATA_LOCATION + "/" + q ) as Quest )
+		quests.append( load( QUEST_DATA_LOCATION + q ) as Quest )
 	print( "Quest Count: " ,quests.size() )
 	pass
 
@@ -106,6 +106,8 @@ func find_quest( _quest : Quest ) -> Dictionary:
 # Takes title to find the associated quests
 func find_quest_by_title( _title : String ) -> Quest:
 	for q in quests:
+		if q == null:
+			continue
 		if q.title.to_lower() == _title.to_lower():
 			return q
 	return null
