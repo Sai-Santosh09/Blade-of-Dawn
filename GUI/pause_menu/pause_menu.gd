@@ -38,11 +38,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func show_pause_menu() -> void:
-	get_tree().paused = true
 	visible = true
 	is_paused = true
 	tab_container.current_tab = 0
 	shown.emit()
+	get_tree().paused = true
 
 
 func hide_pause_menu() -> void:

@@ -110,3 +110,35 @@ func use_item( item : ItemData, count : int = 1 ) -> bool:
 				s.quantity -= count
 				return true
 	return false
+
+
+func equip_item( slot : SlotData ) -> void:
+	if slot == null or not slot.item_data is EquipableItemData:
+		return
+	
+	var item : EquipableItemData = slot.item_data
+	var slot_index : int = slots.find( slot )
+	var equipment_index : int = slots.size() - equipment_slot_count
+	
+	match item.type:
+		EquipableItemData.Type.ARMOR:
+			equipment_index += 0
+			pass
+		EquipableItemData.Type.WEAPON:
+			equipment_index += 1
+			pass
+		EquipableItemData.Type.AMULET:
+			equipment_index += 2
+			pass
+		EquipableItemData.Type.RING:
+			equipment_index += 3
+			pass
+	
+	var unequiped_slot : SlotData = slots[ equipment_index ]
+	
+	slots[ slot_index ] = unequiped_slot
+	slots[ equipment_index ] = slot
+	
+	equipment_changed.emit()
+	
+	pass

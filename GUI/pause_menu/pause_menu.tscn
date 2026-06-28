@@ -204,6 +204,26 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dvxeg")
 theme_override_font_sizes/font_size = 16
 
+[node name="InventorySlot17" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=359898370 instance=ExtResource("3_rsqrg")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvxeg")
+theme_override_font_sizes/font_size = 16
+
+[node name="InventorySlot18" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=693160891 instance=ExtResource("3_rsqrg")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvxeg")
+theme_override_font_sizes/font_size = 16
+
+[node name="InventorySlot19" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=406296720 instance=ExtResource("3_rsqrg")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvxeg")
+theme_override_font_sizes/font_size = 16
+
+[node name="InventorySlot20" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=1615078189 instance=ExtResource("3_rsqrg")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvxeg")
+theme_override_font_sizes/font_size = 16
+
 [node name="PanelContainer2" type="PanelContainer" parent="Control/TabContainer/Inventory" unique_id=1100730149]
 layout_mode = 0
 offset_left = 257.0
@@ -223,6 +243,7 @@ texture = SubResource("AtlasTexture_cvrss")
 stretch_mode = 3
 
 [node name="InventorySlot_Armour" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=2002000932 instance=ExtResource("3_rsqrg")]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dvxeg")
 theme_override_font_sizes/font_size = 16
@@ -239,6 +260,7 @@ texture = SubResource("AtlasTexture_fgl3m")
 stretch_mode = 3
 
 [node name="InventorySlot_Amulet" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=793588148 instance=ExtResource("3_rsqrg")]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dvxeg")
 theme_override_font_sizes/font_size = 16
@@ -250,6 +272,7 @@ texture = SubResource("AtlasTexture_00kwt")
 stretch_mode = 3
 
 [node name="InventorySlot_Weapon" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=112423114 instance=ExtResource("3_rsqrg")]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dvxeg")
 theme_override_font_sizes/font_size = 16
@@ -266,6 +289,7 @@ texture = SubResource("AtlasTexture_syaa3")
 stretch_mode = 3
 
 [node name="InventorySlot_Ring" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=1113250077 instance=ExtResource("3_rsqrg")]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dvxeg")
 theme_override_font_sizes/font_size = 16
@@ -278,10 +302,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -208.0
-offset_top = 82.5
-offset_right = 213.0
-offset_bottom = 124.5
+offset_left = -209.0
+offset_top = 77.5
+offset_right = 212.0
+offset_bottom = 119.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_iqcer")
