@@ -32,6 +32,13 @@ func gather_quest_data() -> void:
 	var quest_files : PackedStringArray = DirAccess.get_files_at( QUEST_DATA_LOCATION )
 	quests.clear()
 	for q in quest_files:
+		
+		if q.ends_with(".remap"):
+			continue
+		
+		if not q.ends_with(".tres") and not q.ends_with(".res"):
+			continue
+		
 		quests.append( load( QUEST_DATA_LOCATION + q ) as Quest )
 	print( "Quest Count: " ,quests.size() )
 	pass

@@ -19,6 +19,7 @@ func _ready() -> void:
 	PauseMenu.hidden.connect( clear_inventory )
 	clear_inventory()
 	data.changed.connect( on_inventory_changed )
+	data.equipment_changed.connect( on_inventory_changed )
 	pass
 
 
@@ -64,7 +65,4 @@ func item_focused() -> void:
 
 
 func on_inventory_changed() -> void:
-	var i = focus_index
 	update_inventory( false )
-	await get_tree().process_frame
-	get_child(i).grab_focus()
