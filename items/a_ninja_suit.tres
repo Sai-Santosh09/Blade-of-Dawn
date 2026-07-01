@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c7grt0shs7ns7" path="res://Items/item_effects/item_effect.gd" id="1_y1bvc"]
 [ext_resource type="Script" uid="uid://vwxggywjdprl" path="res://Items/Scripts/equipable_item_modifier.gd" id="2_a7jn7"]
 [ext_resource type="Script" uid="uid://120yy2okjj3f" path="res://Items/Scripts/equipable_item_data.gd" id="3_ghfju"]
+[ext_resource type="Texture2D" uid="uid://cime4pa2owxnb" path="res://Player/Sprites/player_sprite_ninja_suit.png" id="4_a7jn7"]
 [ext_resource type="Texture2D" uid="uid://0op6yvpsflsw" path="res://Items/Sprites/gear.png" id="4_jjcnf"]
 
 [sub_resource type="Resource" id="Resource_inskq"]
@@ -24,6 +25,7 @@ region = Rect2(128, 0, 32, 32)
 script = ExtResource("3_ghfju")
 type = 1
 modifiers = Array[ExtResource("2_a7jn7")]([SubResource("Resource_inskq"), SubResource("Resource_y1bvc")])
+sprite_texture = ExtResource("4_a7jn7")
 name = "Ninja Suit"
 description = "Favored by elite assassins, this suit is worn by skilled shinobi, enchances offensive power and defensive resilience...."
 texture = SubResource("AtlasTexture_b6e43")
