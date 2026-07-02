@@ -1966,4 +1966,3 @@ explosiveness = 0.25
 process_material = SubResource("ParticleProcessMaterial_8ynux")
 
 [node name="FootstepAudio2D" parent="." unique_id=828537820 instance=ExtResource("34_j2n6q")]
-position = Vector2(740.40906, 88.45454)

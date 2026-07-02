@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://be3ek6w07ogid" path="res://Levels/player_spawn.tscn" id="4_tek06"]
 [ext_resource type="PackedScene" uid="uid://3jnnokf0c7ya" path="res://Levels/level_transition.tscn" id="5_mwxiv"]
 [ext_resource type="PackedScene" uid="uid://lvpfumdb0yyo" path="res://Npc/npc.tscn" id="7_icgqb"]
+[ext_resource type="PackedScene" uid="uid://d1p6quhl6c5go" path="res://Levels/level_transition_interact.tscn" id="8_0j6pc"]
 [ext_resource type="Resource" uid="uid://chq18xv2s7kpc" path="res://Npc/00_npcs/npc_01.tres" id="8_jeo2k"]
 [ext_resource type="PackedScene" uid="uid://chvc2520igbtc" path="res://Npc/npc_behavior_wander.tscn" id="8_ua1y0"]
 [ext_resource type="Resource" uid="uid://cyhhgmm3w27ou" path="res://Npc/00_npcs/npc_02.tres" id="10_krbdk"]
@@ -87,6 +88,9 @@ position = Vector2(272, -128)
 level = "uid://pe6m1ydy5wqo"
 size = 3
 side = 2
+
+[node name="LevelTransition_Shop" parent="." unique_id=1222331353 instance=ExtResource("8_0j6pc")]
+position = Vector2(480, 160)
 
 [node name="NPC" parent="." unique_id=1009038258 instance=ExtResource("7_icgqb")]
 position = Vector2(223.4095, 80.06475)
