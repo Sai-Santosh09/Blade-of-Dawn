@@ -90,7 +90,11 @@ size = 3
 side = 2
 
 [node name="LevelTransition_Shop" parent="." unique_id=1222331353 instance=ExtResource("8_0j6pc")]
-position = Vector2(480, 160)
+position = Vector2(480, 157)
+level = "uid://dout4tfi4wth2"
+center_player = true
+size = 1
+side = 2
 
 [node name="NPC" parent="." unique_id=1009038258 instance=ExtResource("7_icgqb")]
 position = Vector2(223.4095, 80.06475)
