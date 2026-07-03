@@ -116,7 +116,6 @@ size = Vector2(20, 12)
 size = Vector2(16, 8)
 
 [node name="Pot" type="Node2D" unique_id=60766000]
-y_sort_enabled = true
 
 [node name="ShadowSprite2D" type="Sprite2D" parent="." unique_id=1916109187]
 texture = SubResource("GradientTexture2D_yhd6l")
