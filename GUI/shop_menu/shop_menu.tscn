@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dydc4h868gpbk"]
+
+[ext_resource type="Texture2D" uid="uid://b2rdkdwfytd5h" path="res://Items/Sprites/items.png" id="1_b3iil"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsqrg"]
+atlas = ExtResource("1_b3iil")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mswg8"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = SubResource("AtlasTexture_rsqrg")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[node name="ShopMenu" type="CanvasLayer" unique_id=1202932174]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=132273791]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.10747976, 0.10747973, 0.10747973, 0.78431374)
+
+[node name="Control" type="Control" parent="." unique_id=2016480481]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control" unique_id=2059341350]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 61.0
+offset_right = 453.0
+offset_bottom = 226.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_mswg8")
+
+[node name="CloseButton" type="Button" parent="Control" unique_id=709991627]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = -38.0
+offset_right = -30.0
+offset_bottom = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Close"
+
+[node name="Label" type="Label" parent="." unique_id=1226382914]
+modulate = Color(1, 1, 1, 0.53333336)
+offset_left = 36.0
+offset_top = 32.0
+offset_right = 120.0
+offset_bottom = 50.0
+text = "Shop Keeper"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1210487008]
