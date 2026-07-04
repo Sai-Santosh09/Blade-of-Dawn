@@ -144,6 +144,13 @@ func equip_item( slot : SlotData ) -> void:
 	pass
 
 
+func swap_items_by_index( i1 : int, i2 : int ) -> void:
+	var temp : SlotData = slots[ i1 ]
+	slots[ i1 ] = slots[ i2 ]
+	slots[ i2 ] = temp
+	pass
+
+
 func get_attack_bonus() -> int:
 	return get_equipment_bonus( EquipableItemModifier.Type.ATTACK )
 

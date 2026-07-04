@@ -22,7 +22,7 @@ func _ready() -> void:
 
 func _process( _delta: float ) -> void:
 	if dragging == true:
-		drag_texture.position = get_local_mouse_position()
+		drag_texture.position = get_local_mouse_position() - Vector2( 16, 16 )
 		if outside_drag_threshold() == true:
 			drag_texture.modulate.a = 0.5
 		else:
@@ -54,7 +54,7 @@ func item_unfocused() -> void:
 
 
 func item_pressed() -> void:
-	if slot_data:
+	if slot_data and outside_drag_threshold() == false:
 		if slot_data.item_data:
 			var item = slot_data.item_data
 			
@@ -76,6 +76,7 @@ func _on_button_down() -> void:
 	dragging = true
 	drag_texture = texture_rect.duplicate()
 	drag_texture.z_index = 10
+	drag_texture.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child( drag_texture )
 	pass
 
