@@ -32,6 +32,7 @@ PauseMenu="*res://GUI/pause_menu/pause_menu.tscn"
 DialogSystem="*res://GUI/dialog_system/dialog_system.tscn"
 QuestManager="*uid://wb5t05iod30i"
 EffectManager="*uid://dcb2kocdcl4qr"
+ShopMenu="*uid://dydc4h868gpbk"
 
 [display]
 
