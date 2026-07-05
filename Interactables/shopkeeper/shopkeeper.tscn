@@ -1,10 +1,16 @@
-[gd_scene format=3 uid="uid://buhftjoahphpd"]
+[gd_scene format=3 uid="uid://dgn4dq4pywfsx"]
 
-[ext_resource type="Texture2D" uid="uid://b6wqw310vk2rf" path="res://Interactables/dialog/sprites/dialog_interactable.png" id="1_a5vth"]
-[ext_resource type="Script" uid="uid://rmo0u1fo26lx" path="res://Interactables/dialog/scripts/dialog_interaction.gd" id="1_w4e83"]
+[ext_resource type="Script" uid="uid://docdrg8baeyi6" path="res://Interactables/shopkeeper/shopkeeper.gd" id="1_0pe81"]
+[ext_resource type="PackedScene" uid="uid://lvpfumdb0yyo" path="res://Npc/npc.tscn" id="2_c7uoq"]
+[ext_resource type="Resource" uid="uid://bj1f0rf57ic0i" path="res://Npc/00_npcs/shopkeeper.tres" id="3_f4o7l"]
+[ext_resource type="Script" uid="uid://rmo0u1fo26lx" path="res://Interactables/dialog/scripts/dialog_interaction.gd" id="4_rm5k1"]
+[ext_resource type="Script" uid="uid://1sfkun374vc7" path="res://Interactables/dialog/scripts/dialog_text.gd" id="5_cefmo"]
+[ext_resource type="Texture2D" uid="uid://b6wqw310vk2rf" path="res://Interactables/dialog/sprites/dialog_interactable.png" id="5_l65jf"]
+[ext_resource type="Script" uid="uid://dxpsriu3mlght" path="res://Interactables/dialog/scripts/dialog_choice.gd" id="6_wi73v"]
+[ext_resource type="Script" uid="uid://cb5n5wpgyk8h2" path="res://Interactables/dialog/scripts/dialog_branch.gd" id="7_rm5k1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4e83"]
-size = Vector2(44, 32)
+size = Vector2(44, 45)
 
 [sub_resource type="Animation" id="Animation_w4e83"]
 length = 0.001
@@ -124,23 +130,59 @@ _data = {
 &"show": SubResource("Animation_4fpja")
 }
 
-[node name="DialogInteraction" type="Area2D" unique_id=907827062]
+[node name="Shopkeeper" type="Node2D" unique_id=1342123038]
+script = ExtResource("1_0pe81")
+
+[node name="NPC" parent="." unique_id=2005120909 instance=ExtResource("2_c7uoq")]
+npc_resource = ExtResource("3_f4o7l")
+
+[node name="DialogInteraction" type="Area2D" parent="NPC" unique_id=1026461575]
 collision_layer = 0
 collision_mask = 4
 monitorable = false
-script = ExtResource("1_w4e83")
+script = ExtResource("4_rm5k1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=536850059]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/DialogInteraction" unique_id=536850059]
 modulate = Color(0, 1.1544292, 0.87570196, 0.60784316)
 z_index = 100
+position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_w4e83")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1553333374]
+[node name="Sprite2D" type="Sprite2D" parent="NPC/DialogInteraction" unique_id=1553333374]
 position = Vector2(2, -52)
-texture = ExtResource("1_a5vth")
+texture = ExtResource("5_l65jf")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=377870026]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NPC/DialogInteraction" unique_id=377870026]
 process_mode = 3
 libraries/ = SubResource("AnimationLibrary_7h05v")
 autoplay = &"default"
+
+[node name="DialogText" type="Node" parent="NPC/DialogInteraction" unique_id=2041393544]
+script = ExtResource("5_cefmo")
+text = "[b]Ah, a new face.[/b] Take a look around. If something catches your eye, it's for sale."
+npc_info = ExtResource("3_f4o7l")
+metadata/_custom_type_script = "uid://1sfkun374vc7"
+
+[node name="DialogChoice" type="Node" parent="NPC/DialogInteraction" unique_id=1794808000]
+script = ExtResource("6_wi73v")
+npc_info = ExtResource("3_f4o7l")
+metadata/_custom_type_script = "uid://dxpsriu3mlght"
+
+[node name="DialogBranch" type="Node" parent="NPC/DialogInteraction/DialogChoice" unique_id=2092208293]
+script = ExtResource("7_rm5k1")
+text = "Let's see what you are selling"
+npc_info = ExtResource("3_f4o7l")
+metadata/_custom_type_script = "uid://cb5n5wpgyk8h2"
+
+[node name="DialogBranch2" type="Node" parent="NPC/DialogInteraction/DialogChoice" unique_id=818737436]
+script = ExtResource("7_rm5k1")
+text = "Maybe another time..."
+npc_info = ExtResource("3_f4o7l")
+metadata/_custom_type_script = "uid://cb5n5wpgyk8h2"
+
+[node name="DialogText" type="Node" parent="NPC/DialogInteraction/DialogChoice/DialogBranch2" unique_id=1643417252]
+script = ExtResource("5_cefmo")
+text = "Very well. Safe travels."
+npc_info = ExtResource("3_f4o7l")
+metadata/_custom_type_script = "uid://1sfkun374vc7"

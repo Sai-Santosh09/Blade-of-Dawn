@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="NPCResource" format=3 uid="uid://bj1f0rf57ic0i"]
+
+[ext_resource type="Texture2D" uid="uid://e1xfnedbl0qd" path="res://Npc/Sprites/portraits/portrait_placeholder.png" id="1_rx0tl"]
+[ext_resource type="Script" uid="uid://cu0td8q1g7bkb" path="res://Npc/Scripts/npc_resource.gd" id="1_xafid"]
+[ext_resource type="Texture2D" uid="uid://br8ovy48wsn3q" path="res://Npc/Sprites/shopkeeper.png" id="3_pb7j4"]
+
+[resource]
+script = ExtResource("1_xafid")
+npc_name = "Shopkeeper Nick"
+sprite = ExtResource("3_pb7j4")
+portrait = ExtResource("1_rx0tl")
+dialog_audio_pitch = 1.8
+metadata/_custom_type_script = "uid://cu0td8q1g7bkb"
