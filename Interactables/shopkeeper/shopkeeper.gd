@@ -12,5 +12,5 @@ func _ready() -> void:
 
 
 func show_shop_menu() -> void:
-	
+	ShopMenu.show_menu( shop_inventory )
 	pass

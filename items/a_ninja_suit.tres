@@ -29,4 +29,5 @@ sprite_texture = ExtResource("4_a7jn7")
 name = "Ninja Suit"
 description = "Favored by elite assassins, this suit is worn by skilled shinobi, enchances offensive power and defensive resilience...."
 texture = SubResource("AtlasTexture_b6e43")
+cost = 500
 metadata/_custom_type_script = "uid://120yy2okjj3f"

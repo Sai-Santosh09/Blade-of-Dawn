@@ -7,6 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://6dlppqfo0wyr" path="res://Props/pots/pot.tscn" id="3_o774g"]
 [ext_resource type="PackedScene" uid="uid://3jnnokf0c7ya" path="res://Levels/level_transition.tscn" id="4_d4kj3"]
 [ext_resource type="PackedScene" uid="uid://dgn4dq4pywfsx" path="res://Interactables/shopkeeper/shopkeeper.tscn" id="7_cdc6r"]
+[ext_resource type="Script" uid="uid://cmmh17r1gdq1l" path="res://Items/Scripts/item_data.gd" id="8_24ur4"]
+[ext_resource type="Resource" uid="uid://btgy1pxbpcf2i" path="res://Items/apple.tres" id="9_54jjq"]
+[ext_resource type="Resource" uid="uid://dy1l6qqnwlkvx" path="res://Items/potion.tres" id="10_ktyg8"]
+[ext_resource type="Resource" uid="uid://dbdr2b48aqpe3" path="res://Items/w_katana.tres" id="11_qkluu"]
+[ext_resource type="Resource" uid="uid://dgd7c65gbtabl" path="res://Items/a_ninja_suit.tres" id="12_ena7o"]
+[ext_resource type="Resource" uid="uid://bb5ko71hpfgki" path="res://Items/w_iron_sword.tres" id="13_54jjq"]
+[ext_resource type="Resource" uid="uid://chbpiwwxc5mp2" path="res://Items/stone.tres" id="13_hqw0x"]
 
 [node name="02Shop" type="Node2D" unique_id=1839889350]
 script = ExtResource("1_o774g")
@@ -78,3 +85,4 @@ side = 3
 
 [node name="Shopkeeper" parent="." unique_id=1342123038 instance=ExtResource("7_cdc6r")]
 position = Vector2(496, 96)
+shop_inventory = Array[ExtResource("8_24ur4")]([ExtResource("9_54jjq"), ExtResource("10_ktyg8"), ExtResource("11_qkluu"), ExtResource("12_ena7o"), ExtResource("13_54jjq"), ExtResource("13_hqw0x")])

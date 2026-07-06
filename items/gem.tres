@@ -13,4 +13,5 @@ script = ExtResource("1_m7x72")
 name = "Gem"
 description = "Sparkles so hard it distracts enemies… and you."
 texture = SubResource("AtlasTexture_gbvxt")
+cost = 1
 metadata/_custom_type_script = "uid://cmmh17r1gdq1l"

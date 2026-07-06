@@ -23,4 +23,5 @@ sprite_texture = ExtResource("4_50xaj")
 name = "Katana"
 description = "A blade crafted in distinct place called the land of sun with full precision to cut!! "
 texture = SubResource("AtlasTexture_b6e43")
+cost = 800
 metadata/_custom_type_script = "uid://120yy2okjj3f"

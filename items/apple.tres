@@ -20,5 +20,6 @@ script = ExtResource("2_xmv7l")
 name = "Apple"
 description = "Doctor Repellent (+Small HP, −1 doctor visit)"
 texture = SubResource("AtlasTexture_26tcx")
+cost = 20
 effects = Array[ExtResource("1_dumep")]([SubResource("Resource_qgymf")])
 metadata/_custom_type_script = "uid://cmmh17r1gdq1l"
