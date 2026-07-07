@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://cr346808fxixe" path="res://Enemies/Scripts/drop_data.gd" id="13_2jhu3"]
 [ext_resource type="Resource" uid="uid://dl6owprmny0gu" path="res://Items/gem.tres" id="14_25dev"]
 [ext_resource type="Resource" uid="uid://dy1l6qqnwlkvx" path="res://Items/potion.tres" id="15_47hks"]
+[ext_resource type="Resource" uid="uid://chbpiwwxc5mp2" path="res://Items/stone.tres" id="16_6qarh"]
 [ext_resource type="Texture2D" uid="uid://du2lv7b1ay4ki" path="res://Enemies/Slime/DestroySmoke.png" id="16_cpg5j"]
 [ext_resource type="Script" uid="uid://6baajeotwwbf" path="res://Enemies/Scripts/states/enemy_state_chase.gd" id="16_pj30j"]
 [ext_resource type="PackedScene" uid="uid://d3cdjqnxwefdl" path="res://Enemies/vision_area.tscn" id="17_sq7co"]
@@ -673,6 +674,7 @@ _data = {
 [sub_resource type="Resource" id="Resource_yynal"]
 script = ExtResource("13_2jhu3")
 item = ExtResource("14_25dev")
+probability = 75.0
 max_amount = 3
 metadata/_custom_type_script = "uid://cr346808fxixe"
 
@@ -680,6 +682,14 @@ metadata/_custom_type_script = "uid://cr346808fxixe"
 script = ExtResource("13_2jhu3")
 item = ExtResource("15_47hks")
 probability = 33.0
+min_amount = 0
+metadata/_custom_type_script = "uid://cr346808fxixe"
+
+[sub_resource type="Resource" id="Resource_t43ny"]
+script = ExtResource("13_2jhu3")
+item = ExtResource("16_6qarh")
+probability = 20.0
+max_amount = 5
 metadata/_custom_type_script = "uid://cr346808fxixe"
 
 [sub_resource type="Animation" id="Animation_3ktsd"]
@@ -811,7 +821,7 @@ next_state = NodePath("../Chase")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine" unique_id=1079953148]
 script = ExtResource("12_43gpi")
-drops = Array[ExtResource("13_2jhu3")]([SubResource("Resource_yynal"), SubResource("Resource_67htc")])
+drops = Array[ExtResource("13_2jhu3")]([SubResource("Resource_yynal"), SubResource("Resource_67htc"), SubResource("Resource_t43ny")])
 
 [node name="Chase" type="Node" parent="EnemyStateMachine" unique_id=2039922342 node_paths=PackedStringArray("vision_area", "attack_area", "next_state")]
 script = ExtResource("16_pj30j")

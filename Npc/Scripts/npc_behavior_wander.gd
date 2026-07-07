@@ -20,7 +20,7 @@ func _ready() -> void:
 	original_position = npc.global_position
 
 
-func _process(delta: float) -> void:
+func _process( _delta: float ) -> void:
 
 	if Engine.is_editor_hint():
 		return

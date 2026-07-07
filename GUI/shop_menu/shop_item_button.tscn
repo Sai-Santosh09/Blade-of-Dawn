@@ -14,9 +14,9 @@ script = ExtResource("1_rm5x1")
 
 [node name="Label" type="Label" parent="." unique_id=122383566]
 layout_mode = 0
-offset_left = 33.0
+offset_left = 35.0
 offset_top = 10.0
-offset_right = 188.0
+offset_right = 190.0
 offset_bottom = 28.0
 text = "Label for the item"
 clip_text = true

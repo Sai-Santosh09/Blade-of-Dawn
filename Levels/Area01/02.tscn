@@ -103,7 +103,6 @@ npc_resource = ExtResource("8_jeo2k")
 [node name="NpcBehaviorWander" parent="NPC" unique_id=587828201 instance=ExtResource("8_ua1y0")]
 
 [node name="DialogInteraction" parent="NPC" unique_id=1127606689 instance=ExtResource("10_r3wde")]
-enabled = true
 
 [node name="DialogText" type="Node" parent="NPC/DialogInteraction" unique_id=604883167]
 script = ExtResource("11_mxs1d")
@@ -159,7 +158,6 @@ Checking if player has quest"
 
 [node name="DialogInteraction" parent="NPC2/QuestActivatedSwitch" unique_id=752223696 instance=ExtResource("10_r3wde")]
 position = Vector2(0, 11)
-enabled = true
 
 [node name="DialogText" type="Node" parent="NPC2/QuestActivatedSwitch/DialogInteraction" unique_id=335835180]
 script = ExtResource("11_mxs1d")
@@ -243,7 +241,6 @@ Check if player is on step: return the magical flute."
 
 [node name="DialogInteraction" parent="NPC2/QuestActivatedSwitch3/QuestActivatedSwitch2/QuestActivatedSwitch2" unique_id=553260935 instance=ExtResource("10_r3wde")]
 position = Vector2(0, 28)
-enabled = true
 
 [node name="DialogText" type="Node" parent="NPC2/QuestActivatedSwitch3/QuestActivatedSwitch2/QuestActivatedSwitch2/DialogInteraction" unique_id=2042933862]
 script = ExtResource("11_mxs1d")
@@ -262,7 +259,6 @@ Check if player is on step: return the magical flute."
 
 [node name="DialogInteraction2" parent="NPC2/QuestActivatedSwitch3/QuestActivatedSwitch2/QuestActivatedSwitch" unique_id=999734837 instance=ExtResource("10_r3wde")]
 position = Vector2(0, 28)
-enabled = true
 
 [node name="DialogText" type="Node" parent="NPC2/QuestActivatedSwitch3/QuestActivatedSwitch2/QuestActivatedSwitch/DialogInteraction2" unique_id=1306704899]
 script = ExtResource("11_mxs1d")
