@@ -4,6 +4,7 @@ class_name State_Walk extends State
 
 @onready var idle: State = $"../Idle"
 @onready var attack: State = $"../Attack"
+@onready var dash: StateDash = $"../Dash"
 
 
 func Enter() -> void:
@@ -39,6 +40,8 @@ func Physics( _delta : float ) -> State:
 func Handleinput( _event : InputEvent ) -> State:
 	if _event.is_action_pressed("attack"):
 		return attack
-	if _event.is_action_pressed("interact"):
+	elif _event.is_action_pressed("interact"):
 		PlayerManager.interact()
+	elif _event.is_action_pressed( "dash" ):
+		return dash
 	return null

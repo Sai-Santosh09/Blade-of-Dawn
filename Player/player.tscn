@@ -31,6 +31,8 @@
 [ext_resource type="AudioStream" uid="uid://b1j5junl782hf" path="res://Player/Audio/throw.wav" id="20_sm0op"]
 [ext_resource type="Script" uid="uid://7dm5lld0s8cr" path="res://Player/Scripts/states/state_death.gd" id="21_76lrf"]
 [ext_resource type="AudioStream" uid="uid://dy30w6ju0nc1b" path="res://Player/Audio/exhausted.wav" id="22_efx54"]
+[ext_resource type="Script" uid="uid://daxo8osblcb3y" path="res://Player/Scripts/states/state_dash.gd" id="25_c6x0f"]
+[ext_resource type="AudioStream" uid="uid://v6wqf3k8hnsr" path="res://Player/Audio/swoosh.wav" id="26_jp1hh"]
 [ext_resource type="AudioStream" uid="uid://b18o6oifhxgrv" path="res://Player/Audio/dragon-studio-level-up-431472.wav" id="28_bbimk"]
 [ext_resource type="FontFile" uid="uid://dge2ewb34lll6" path="res://GUI/fonts/m5x7.ttf" id="30_755ss"]
 [ext_resource type="PackedScene" uid="uid://cfi8hirphjyl6" path="res://GeneralNodes/footstep_audio_2d/footstep_audio_2d.tscn" id="34_j2n6q"]
@@ -1183,6 +1185,57 @@ tracks/3/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_iyprq"]
+resource_name = "dash_down"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [12]
+}
+
+[sub_resource type="Animation" id="Animation_f4lon"]
+resource_name = "dash_side"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [17]
+}
+
+[sub_resource type="Animation" id="Animation_8ynux"]
+resource_name = "dash_up"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [16]
+}
+
 [sub_resource type="Animation" id="Animation_jp1hh"]
 resource_name = "death"
 length = 0.4
@@ -1487,6 +1540,9 @@ _data = {
 &"charge_walk_down": SubResource("Animation_7emwf"),
 &"charge_walk_side": SubResource("Animation_gpjlu"),
 &"charge_walk_up": SubResource("Animation_hshwv"),
+&"dash_down": SubResource("Animation_iyprq"),
+&"dash_side": SubResource("Animation_f4lon"),
+&"dash_up": SubResource("Animation_8ynux"),
 &"death": SubResource("Animation_jp1hh"),
 &"lift_down": SubResource("Animation_sm0op"),
 &"lift_side": SubResource("Animation_efx54"),
@@ -1885,6 +1941,11 @@ throw_audio = ExtResource("20_sm0op")
 [node name="Death" type="Node" parent="StateMachine" unique_id=1449085593]
 script = ExtResource("21_76lrf")
 exhaust_audio = ExtResource("22_efx54")
+
+[node name="Dash" type="Node" parent="StateMachine" unique_id=166003408]
+script = ExtResource("25_c6x0f")
+move_speed = 250.0
+dash_audio = ExtResource("26_jp1hh")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1001298927]
 position = Vector2(0, -1)
