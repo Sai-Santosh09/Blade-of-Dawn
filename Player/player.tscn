@@ -1945,6 +1945,7 @@ exhaust_audio = ExtResource("22_efx54")
 [node name="Dash" type="Node" parent="StateMachine" unique_id=166003408]
 script = ExtResource("25_c6x0f")
 move_speed = 250.0
+effect_delay = 0.065
 dash_audio = ExtResource("26_jp1hh")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1001298927]
