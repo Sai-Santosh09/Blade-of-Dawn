@@ -30,8 +30,12 @@ var attack : int = 1 :
 	set( v ):
 		attack = v
 		update_damage_values()
+
 var defense : int = 1
 var defense_bonus : int = 0
+
+var arrow_count : int = 2
+var bomb_count : int = 10
 
 func _ready():
 	PlayerManager.player = self
