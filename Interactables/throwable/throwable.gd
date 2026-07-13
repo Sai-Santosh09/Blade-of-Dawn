@@ -6,7 +6,7 @@ class_name Throwable extends Area2D
 @export var throw_starting_height : float = 49.0
 
 var picked_up : bool = false
-var throwable : Node2D
+var prop : Node2D
 var throw_direction : Vector2
 var object_sprite : Sprite2D
 var vertical_velocity : float = 0.0
@@ -15,28 +15,29 @@ var animation_player : AnimationPlayer
 
 
 @onready var hurt_box: HurtBox = $HurtBox
+@onready var wall_detect: Area2D = $WallDetect
 
 
 
 func _ready() -> void:
 	area_entered.connect( _on_area_enter )
 	area_exited.connect( _on_area_exit )
-	throwable = get_parent()
+	prop = get_parent()
 	
-	object_sprite = throwable.find_child( "Sprite2D" )
+	object_sprite = prop.find_child( "Sprite2D" )
 	ground_height = object_sprite.position.y
-	animation_player = throwable.find_child( "AnimationPlayer" )
+	animation_player = prop.find_child( "AnimationPlayer" )
 	set_physics_process( false )
 	
-	setup_hurt_box()
+	setup_collision_boxes()
 
 
 func _physics_process(delta: float) -> void:
 	object_sprite.position.y += vertical_velocity * delta
 	if object_sprite.position.y >= ground_height:
-		destroy()
+		hit_ground()
 	vertical_velocity += gravity_strength * delta
-	throwable.position += throw_direction * throw_speed * delta
+	prop.position += throw_direction * throw_speed * delta
 	pass
 
 
@@ -45,11 +46,11 @@ func player_interact() -> void:
 		return
 	if picked_up == false:
 		PlayerManager.interact_handled = true
-		diasble_collisions( throwable )
-		if throwable.get_parent():
-			throwable.get_parent().remove_child( throwable )
-		PlayerManager.player.held_item.add_child( throwable )
-		throwable.position = Vector2.ZERO
+		diasble_collisions( prop )
+		if prop.get_parent():
+			prop.get_parent().remove_child( prop )
+		PlayerManager.player.held_item.add_child( prop )
+		prop.position = Vector2.ZERO
 		PlayerManager.player.pickup_item( self )
 		area_entered.disconnect( _on_area_enter )
 		area_exited.disconnect( _on_area_exit )
@@ -58,27 +59,27 @@ func player_interact() -> void:
 
 
 func throw() -> void:
-	throwable.get_parent().remove_child( throwable )
-	PlayerManager.player.get_parent().call_deferred( "add_child", throwable )
-	throwable.position = PlayerManager.player.position
+	prop.get_parent().remove_child( prop )
+	PlayerManager.player.get_parent().call_deferred( "add_child", prop )
+	prop.position = PlayerManager.player.position
 	object_sprite.position.y = -throw_starting_height
 	vertical_velocity = -throw_height_strength
 	set_physics_process( true )
 	hurt_box.set_deferred( "monitoring", true )
-	hurt_box.did_damage.connect( destroy )
+	hurt_box.did_damage.connect( did_damage )
+	wall_detect.body_entered.connect( _on_body_entered )
 	pass
 
 
 func drop() -> void:
-	throwable.get_parent().remove_child( throwable )
-	PlayerManager.player.get_parent().call_deferred( "add_child", throwable )
-	throwable.position = PlayerManager.player.position
+	prop.get_parent().remove_child( prop )
+	PlayerManager.player.get_parent().call_deferred( "add_child", prop )
+	prop.position = PlayerManager.player.position
 	object_sprite.position.y = -50
 	vertical_velocity = -200
 	throw_speed = 100
 	set_physics_process( true )
-	hurt_box.set_deferred( "monitoring", true )
-	hurt_box.did_damage.connect( destroy )
+	wall_detect.body_entered.connect( _on_body_entered )
 	pass
 
 
@@ -88,7 +89,7 @@ func destroy() -> void:
 		animation_player.play( "destroy" )
 		hurt_box.set_deferred( "monitoring", false )
 		await animation_player.animation_finished
-	throwable.queue_free()
+	prop.queue_free()
 	pass
 
 
@@ -112,10 +113,28 @@ func _on_area_exit( _a : Area2D ) -> void:
 	pass
 
 
-func setup_hurt_box() -> void:
+func _on_body_entered( _n : Node2D ) -> void:
+	if _n is TileMapLayer:
+		did_damage()
+	pass
+
+
+func setup_collision_boxes() -> void:
 	hurt_box.monitoring = false
 	for c in get_children():
 		if c is CollisionShape2D:
 			var _col : CollisionShape2D = c.duplicate()
 			hurt_box.add_child( _col )
 			_col.debug_color = Color(1, 0,0, 0.5)
+			var _col_2 : CollisionShape2D = c.duplicate()
+			wall_detect.add_child( _col_2 )
+
+
+func hit_ground() -> void:
+	destroy()
+	pass
+
+
+func did_damage() -> void:
+	destroy()
+	pass

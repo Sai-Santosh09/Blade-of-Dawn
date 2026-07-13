@@ -1,14 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://q8sxd2lraoo3"]
+[gd_scene format=3 uid="uid://q8sxd2lraoo3"]
 
 [ext_resource type="Script" uid="uid://bu47k3gcbxbct" path="res://Interactables/throwable/throwable.gd" id="1_7p4g0"]
 [ext_resource type="PackedScene" uid="uid://78osin78fkgk" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="2_jakst"]
 
-[node name="Throwable" type="Area2D"]
+[node name="Throwable" type="Area2D" unique_id=257702663]
 collision_layer = 0
 collision_mask = 4
 monitorable = false
 script = ExtResource("1_7p4g0")
 
-[node name="HurtBox" parent="." instance=ExtResource("2_jakst")]
+[node name="HurtBox" parent="." unique_id=180096754 instance=ExtResource("2_jakst")]
 collision_mask = 256
 damage = 2
+
+[node name="WallDetect" type="Area2D" parent="." unique_id=1175959483]
+collision_layer = 0
+collision_mask = 16
