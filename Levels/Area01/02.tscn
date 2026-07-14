@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bs6765tj7qv5o" path="res://quests/utility_nodes/quest_activated_switch.tscn" id="23_xflnv"]
 [ext_resource type="Resource" uid="uid://dbdr2b48aqpe3" path="res://Items/w_katana.tres" id="24_d1jyu"]
 [ext_resource type="PackedScene" uid="uid://d0f5kgoh21jxx" path="res://Interactables/bomb/bomb.tscn" id="27_abg8o"]
+[ext_resource type="PackedScene" uid="uid://bfbl22iqitmia" path="res://Enemies/Slime/slime.tscn" id="28_45xa8"]
 
 [sub_resource type="GDScript" id="GDScript_d1jyu"]
 script/source = "extends Node
@@ -289,3 +290,6 @@ item_data = ExtResource("24_d1jyu")
 
 [node name="Bomb" parent="." unique_id=93995509 instance=ExtResource("27_abg8o")]
 position = Vector2(305, 218)
+
+[node name="Slime" parent="." unique_id=1260033572 instance=ExtResource("28_45xa8")]
+position = Vector2(224, 296)

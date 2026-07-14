@@ -46,7 +46,7 @@ func player_interact() -> void:
 		return
 	if picked_up == false:
 		PlayerManager.interact_handled = true
-		diasble_collisions( prop )
+		disable_collisions( prop )
 		if prop.get_parent():
 			prop.get_parent().remove_child( prop )
 		PlayerManager.player.held_item.add_child( prop )
@@ -72,7 +72,7 @@ func throw() -> void:
 
 
 func drop() -> void:
-	prop.get_parent().remove_child( prop )
+	prop.get_parent().call_deferred( "remove_child", prop )
 	PlayerManager.player.get_parent().call_deferred( "add_child", prop )
 	prop.position = PlayerManager.player.position
 	object_sprite.position.y = -50
@@ -93,14 +93,14 @@ func destroy() -> void:
 	pass
 
 
-func diasble_collisions( _node : Node ) -> void:
+func disable_collisions( _node : Node ) -> void:
 	for c in _node.get_children():
 		if c == self:
 			continue
 		if c is CollisionShape2D:
 			c.disabled = true
 		else:
-			diasble_collisions( c )
+			disable_collisions( c )
 
 
 func _on_area_enter( _a : Area2D ) -> void:
