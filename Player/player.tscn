@@ -33,6 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://dy30w6ju0nc1b" path="res://Player/Audio/exhausted.wav" id="22_efx54"]
 [ext_resource type="Script" uid="uid://daxo8osblcb3y" path="res://Player/Scripts/states/state_dash.gd" id="25_c6x0f"]
 [ext_resource type="AudioStream" uid="uid://v6wqf3k8hnsr" path="res://Player/Audio/swoosh.wav" id="26_jp1hh"]
+[ext_resource type="Script" uid="uid://dku8wlxjrhqmq" path="res://Player/Scripts/states/state_bow.gd" id="27_qs4pp"]
 [ext_resource type="AudioStream" uid="uid://b18o6oifhxgrv" path="res://Player/Audio/dragon-studio-level-up-431472.wav" id="28_bbimk"]
 [ext_resource type="FontFile" uid="uid://dge2ewb34lll6" path="res://GUI/fonts/m5x7.ttf" id="30_755ss"]
 [ext_resource type="PackedScene" uid="uid://cfi8hirphjyl6" path="res://GeneralNodes/footstep_audio_2d/footstep_audio_2d.tscn" id="34_j2n6q"]
@@ -568,6 +569,57 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -17)]
+}
+
+[sub_resource type="Animation" id="Animation_d30e8"]
+resource_name = "bow_down"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [77, 78, 79, 78]
+}
+
+[sub_resource type="Animation" id="Animation_6pogt"]
+resource_name = "bow_side"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [83, 84, 85, 84]
+}
+
+[sub_resource type="Animation" id="Animation_ie76m"]
+resource_name = "bow_up"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [80, 81, 82, 81]
 }
 
 [sub_resource type="Animation" id="Animation_755ss"]
@@ -1527,6 +1579,9 @@ _data = {
 &"attack_down": SubResource("Animation_85eyu"),
 &"attack_side": SubResource("Animation_gxll4"),
 &"attack_up": SubResource("Animation_su5ja"),
+&"bow_down": SubResource("Animation_d30e8"),
+&"bow_side": SubResource("Animation_6pogt"),
+&"bow_up": SubResource("Animation_ie76m"),
 &"carry_down": SubResource("Animation_755ss"),
 &"carry_side": SubResource("Animation_m0h3t"),
 &"carry_up": SubResource("Animation_bbimk"),
@@ -1947,6 +2002,9 @@ script = ExtResource("25_c6x0f")
 move_speed = 250.0
 effect_delay = 0.065
 dash_audio = ExtResource("26_jp1hh")
+
+[node name="Bow" type="Node" parent="StateMachine" unique_id=97326252]
+script = ExtResource("27_qs4pp")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1001298927]
 position = Vector2(0, -1)

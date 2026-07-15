@@ -34,7 +34,7 @@ var attack : int = 1 :
 var defense : int = 1
 var defense_bonus : int = 0
 
-var arrow_count : int = 2
+var arrow_count : int = 8
 var bomb_count : int = 10
 
 func _ready():
