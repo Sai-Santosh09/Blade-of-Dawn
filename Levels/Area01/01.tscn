@@ -9,10 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://ck5nc0ynuxlh3" path="res://tile maps/sprites/dungeon_entrance.png" id="5_c2gse"]
 [ext_resource type="PackedScene" uid="uid://dv33qkrf4cqn1" path="res://Interactables/TreasureChest/treasure_chest.tscn" id="5_pwydo"]
 [ext_resource type="Resource" uid="uid://c2ww3ctnmwdv2" path="res://quests/collect_the_flute.tres" id="5_qqqph"]
-[ext_resource type="Resource" uid="uid://dy1l6qqnwlkvx" path="res://Items/potion.tres" id="6_xhij5"]
 [ext_resource type="PackedScene" uid="uid://bddn2owiiapkm" path="res://Enemies/goblin/goblin.tscn" id="9_b60gt"]
 [ext_resource type="AudioStream" uid="uid://dhnid2br4cdl6" path="res://Levels/music/example_music_01.ogg" id="10_f2d14"]
 [ext_resource type="PackedScene" uid="uid://6dlppqfo0wyr" path="res://Props/pots/pot.tscn" id="11_an23e"]
+[ext_resource type="Resource" uid="uid://btgy1pxbpcf2i" path="res://Items/apple.tres" id="11_uv5ft"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h3k26"]
 texture = ExtResource("4_an23e")
@@ -546,7 +546,7 @@ side = 1
 
 [node name="TreasureChest" parent="." unique_id=164637354 instance=ExtResource("5_pwydo")]
 position = Vector2(111, 152)
-item_data = ExtResource("6_xhij5")
+item_data = ExtResource("11_uv5ft")
 quantity = 2
 
 [node name="Goblin" parent="." unique_id=636764738 instance=ExtResource("9_b60gt")]

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dstifh3nkabp"]
+
+[ext_resource type="Script" uid="uid://c7grt0shs7ns7" path="res://Items/item_effects/item_effect.gd" id="1_6gcwn"]
+[ext_resource type="Script" uid="uid://cmmh17r1gdq1l" path="res://Items/Scripts/item_data.gd" id="4_paul1"]
+[ext_resource type="Texture2D" uid="uid://bbm1p5hpimvjo" path="res://Items/Sprites/items_02.png" id="5_6gcwn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j56mv"]
+atlas = ExtResource("5_6gcwn")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+script = ExtResource("4_paul1")
+name = "Arrow"
+texture = SubResource("AtlasTexture_j56mv")
+metadata/_custom_type_script = "uid://cmmh17r1gdq1l"

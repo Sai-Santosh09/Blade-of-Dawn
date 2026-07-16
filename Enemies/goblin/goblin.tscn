@@ -674,7 +674,6 @@ _data = {
 [sub_resource type="Resource" id="Resource_yynal"]
 script = ExtResource("13_2jhu3")
 item = ExtResource("14_25dev")
-probability = 75.0
 max_amount = 3
 metadata/_custom_type_script = "uid://cr346808fxixe"
 

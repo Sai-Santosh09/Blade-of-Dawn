@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhtgo606peawg"]
+[gd_scene format=3 uid="uid://dhtgo606peawg"]
 
 [ext_resource type="Script" uid="uid://d0wg1dxfuvnkb" path="res://Items/item_pickup/item_pickup.gd" id="1_0g51u"]
 [ext_resource type="AudioStream" uid="uid://on8ih5r51mm5" path="res://Items/item_pickup/item_pickup.wav" id="2_0rscd"]
 [ext_resource type="Texture2D" uid="uid://2job0hdpf3uc" path="res://Player/Sprites/Shadow.png" id="2_jl14n"]
+[ext_resource type="FontFile" uid="uid://dge2ewb34lll6" path="res://GUI/fonts/m5x7.ttf" id="4_uwxn1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0g51u"]
 
@@ -67,33 +68,42 @@ _data = {
 &"bounce": SubResource("Animation_tc5ok")
 }
 
-[node name="ItemPickup" type="CharacterBody2D"]
+[node name="ItemPickup" type="CharacterBody2D" unique_id=2057647299]
 collision_layer = 0
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_0g51u")
+item_count = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=85325041]
 shape = SubResource("CircleShape2D_0g51u")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=993815213]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=417388769]
 shape = SubResource("CircleShape2D_0g51u")
 
-[node name="ShadowSprite2D" type="Sprite2D" parent="."]
+[node name="ShadowSprite2D" type="Sprite2D" parent="." unique_id=86568091]
 modulate = Color(0, 0, 0, 0.5882353)
 position = Vector2(0, 7)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_jl14n")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=29846854]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2048692276]
 stream = ExtResource("2_0rscd")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_puw1c")
-}
-autoplay = "bounce"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1970566587]
+libraries/ = SubResource("AnimationLibrary_puw1c")
+autoplay = &"bounce"
+
+[node name="CountLabel" type="Label" parent="." unique_id=1932232990]
+custom_minimum_size = Vector2(24, 18)
+offset_right = 24.0
+offset_bottom = 18.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("4_uwxn1")
+text = "99"
+horizontal_alignment = 1
