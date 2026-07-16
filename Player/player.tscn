@@ -1857,7 +1857,7 @@ color = Color(0, 1, 0.47058824, 1)
 color_ramp = SubResource("GradientTexture1D_f4lon")
 
 [node name="Player" type="CharacterBody2D" unique_id=254493816]
-collision_mask = 16
+collision_mask = 24
 motion_mode = 1
 wall_min_slide_angle = 0.17453292
 script = ExtResource("1_dkpta")
