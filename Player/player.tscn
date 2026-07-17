@@ -35,8 +35,14 @@
 [ext_resource type="AudioStream" uid="uid://v6wqf3k8hnsr" path="res://Player/Audio/swoosh.wav" id="26_jp1hh"]
 [ext_resource type="Script" uid="uid://dku8wlxjrhqmq" path="res://Player/Scripts/states/state_bow.gd" id="27_qs4pp"]
 [ext_resource type="AudioStream" uid="uid://b18o6oifhxgrv" path="res://Player/Audio/dragon-studio-level-up-431472.wav" id="28_bbimk"]
+[ext_resource type="Script" uid="uid://dsdlrds0djaaf" path="res://Player/Scripts/states/state_grapple.gd" id="28_f4lon"]
+[ext_resource type="AudioStream" uid="uid://bmvxvrpqwr4sg" path="res://Player/Audio/grapple_fire.wav" id="29_ie76m"]
 [ext_resource type="FontFile" uid="uid://dge2ewb34lll6" path="res://GUI/fonts/m5x7.ttf" id="30_755ss"]
+[ext_resource type="AudioStream" uid="uid://b2smtim23lb70" path="res://Player/Audio/grapple_stick.wav" id="30_dy65m"]
+[ext_resource type="AudioStream" uid="uid://b5gvwfjon0kpd" path="res://Player/Audio/grapple_clang.wav" id="31_maysp"]
 [ext_resource type="PackedScene" uid="uid://cfi8hirphjyl6" path="res://GeneralNodes/footstep_audio_2d/footstep_audio_2d.tscn" id="34_j2n6q"]
+[ext_resource type="Texture2D" uid="uid://ct2nbp04bk127" path="res://Player/Sprites/grapple.png" id="38_iyprq"]
+[ext_resource type="AudioStream" uid="uid://dtp3feggjtb0u" path="res://Player/Audio/grapple_chain.wav" id="43_1l10g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wt17y"]
 
@@ -2006,6 +2012,12 @@ dash_audio = ExtResource("26_jp1hh")
 [node name="Bow" type="Node" parent="StateMachine" unique_id=97326252]
 script = ExtResource("27_qs4pp")
 
+[node name="Grapple" type="Node" parent="StateMachine" unique_id=1136333435]
+script = ExtResource("28_f4lon")
+grapple_fire_audio = ExtResource("29_ie76m")
+grapple_stick_audio = ExtResource("30_dy65m")
+grapple_bounce_audio = ExtResource("31_maysp")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1001298927]
 position = Vector2(0, -1)
 script = ExtResource("12_8viyr")
@@ -2041,6 +2053,10 @@ script = ExtResource("14_lfmf2")
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_pisgm")
 debug_color = Color(0.9882353, 0, 0.96862745, 0)
+
+[node name="GrappleRayCast2D" type="RayCast2D" parent="Interactions" unique_id=540041322]
+unique_name_in_owner = true
+collision_mask = 0
 
 [node name="HitBox" parent="." unique_id=1050197369 instance=ExtResource("14_76lrf")]
 position = Vector2(0, -1)
@@ -2086,3 +2102,21 @@ explosiveness = 0.25
 process_material = SubResource("ParticleProcessMaterial_8ynux")
 
 [node name="FootstepAudio2D" parent="." unique_id=828537820 instance=ExtResource("34_j2n6q")]
+
+[node name="GrappleHook" type="Node2D" parent="." unique_id=824470364]
+unique_name_in_owner = true
+position = Vector2(0, -14)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="GrappleHook" unique_id=305792783]
+offset_left = -16.0
+offset_right = 16.0
+offset_bottom = 25.0
+texture = ExtResource("38_iyprq")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_top = 16
+patch_margin_bottom = 9
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="GrappleHook" unique_id=1877660141]
+stream = ExtResource("43_1l10g")

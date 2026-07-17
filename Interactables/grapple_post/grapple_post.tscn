@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cc2lg65elntjj"]
+
+[ext_resource type="Texture2D" uid="uid://py1yokrphqq4" path="res://Interactables/grapple_post/grapple_post.png" id="1_4ua77"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_an587"]
+size = Vector2(12, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbvg1"]
+size = Vector2(20, 14)
+
+[node name="GrapplePost" type="Node2D" unique_id=528800505]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=85094573]
+position = Vector2(0, -12)
+texture = ExtResource("1_4ua77")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2102746683]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1455807339]
+shape = SubResource("RectangleShape2D_an587")
+
+[node name="GrapplePointStaticBody2D" type="StaticBody2D" parent="." unique_id=1516737765]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrapplePointStaticBody2D" unique_id=1204980007]
+shape = SubResource("RectangleShape2D_fbvg1")
