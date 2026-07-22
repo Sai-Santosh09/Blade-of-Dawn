@@ -2014,6 +2014,8 @@ script = ExtResource("27_qs4pp")
 
 [node name="Grapple" type="Node" parent="StateMachine" unique_id=1136333435]
 script = ExtResource("28_f4lon")
+grapple_distance = 150.0
+grapple_speed = 350.0
 grapple_fire_audio = ExtResource("29_ie76m")
 grapple_stick_audio = ExtResource("30_dy65m")
 grapple_bounce_audio = ExtResource("31_maysp")
@@ -2056,7 +2058,7 @@ debug_color = Color(0.9882353, 0, 0.96862745, 0)
 
 [node name="GrappleRayCast2D" type="RayCast2D" parent="Interactions" unique_id=540041322]
 unique_name_in_owner = true
-collision_mask = 0
+collision_mask = 48
 
 [node name="HitBox" parent="." unique_id=1050197369 instance=ExtResource("14_76lrf")]
 position = Vector2(0, -1)
