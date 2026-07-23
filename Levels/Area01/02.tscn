@@ -299,7 +299,7 @@ item_count = 5
 position = Vector2(224, 296)
 
 [node name="GrapplePost" parent="." unique_id=528800505 instance=ExtResource("29_sbev4")]
-position = Vector2(412, 368)
+position = Vector2(412, 363)
 
 [node name="GrapplePost2" parent="." unique_id=178160897 instance=ExtResource("29_sbev4")]
 position = Vector2(180, 495)

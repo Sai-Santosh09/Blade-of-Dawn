@@ -5,6 +5,7 @@ class_name State_Grapple extends State
 @onready var nine_patch_rect : NinePatchRect = $"../../GrappleHook/NinePatchRect"
 @onready var chain_audio_player : AudioStreamPlayer2D = $"../../GrappleHook/AudioStreamPlayer2D"
 @onready var grapple_ray_cast_2d: RayCast2D = %GrappleRayCast2D
+@onready var hurt_box: HurtBox = $"../../GrappleHook/NinePatchRect/Control/HurtBox"
 
 
 @export var grapple_distance : float = 100.0
@@ -41,6 +42,7 @@ var pos_map : Dictionary = {
 func init() -> void:
 	grapple_hook.visible = false
 	grapple_ray_cast_2d.enabled = false
+	hurt_box.monitoring = false
 	grapple_ray_cast_2d.target_position.y = grapple_distance
 	pass
 
@@ -55,6 +57,7 @@ func Enter() -> void:
 	
 	chain_audio_player.play()
 	play_audio( grapple_fire_audio )
+	hurt_box.monitoring = true
 	pass
 
 
@@ -66,6 +69,7 @@ func Exit() -> void:
 	chain_audio_player.stop()
 	tween.kill()
 	nine_patch_rect.size.y = nine_patch_size
+	hurt_box.monitoring = false
 	pass
 
 

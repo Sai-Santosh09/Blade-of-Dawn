@@ -136,10 +136,11 @@ offset_right = 63.0
 offset_bottom = 178.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_36pfd")
 
-[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/AbilityContainer" unique_id=2055569690]
+[node name="AbilityGridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/AbilityContainer" unique_id=2055569690]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="InventorySlot" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer" unique_id=51027114]
+[node name="InventorySlot" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer" unique_id=51027114]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dvxeg")
@@ -147,14 +148,14 @@ theme_override_font_sizes/font_size = 16
 script = ExtResource("4_fgl3m")
 description = "A razor-sharp boomerang that slices foes and returns with the fallen loot back to your hands!!!"
 
-[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot" unique_id=1660783270]
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot" unique_id=1660783270]
 layout_mode = 0
 offset_right = 32.0
 offset_bottom = 32.0
 texture = SubResource("AtlasTexture_ak53x")
 stretch_mode = 3
 
-[node name="InventorySlot2" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer" unique_id=650637962]
+[node name="InventorySlot2" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer" unique_id=650637962]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dvxeg")
@@ -162,14 +163,14 @@ theme_override_font_sizes/font_size = 16
 script = ExtResource("4_fgl3m")
 description = "Why walk when you can yeet yourselves at walls!!!"
 
-[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot2" unique_id=363668715]
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot2" unique_id=363668715]
 layout_mode = 0
 offset_right = 32.0
 offset_bottom = 32.0
 texture = SubResource("AtlasTexture_1oddi")
 stretch_mode = 3
 
-[node name="InventorySlot3" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer" unique_id=1727081963]
+[node name="InventorySlot3" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer" unique_id=1727081963]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dvxeg")
@@ -177,14 +178,14 @@ theme_override_font_sizes/font_size = 16
 script = ExtResource("4_fgl3m")
 description = "A trusty bow and arrow. Every adventurer’s best friend - simple, reliable, and always ready to strike true."
 
-[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot3" unique_id=914471482]
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot3" unique_id=914471482]
 layout_mode = 0
 offset_right = 32.0
 offset_bottom = 32.0
 texture = SubResource("AtlasTexture_8ptsh")
 stretch_mode = 3
 
-[node name="ArrowCountLabel" type="Label" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot3" unique_id=1714073446]
+[node name="ArrowCountLabel" type="Label" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot3" unique_id=1714073446]
 unique_name_in_owner = true
 layout_mode = 0
 offset_top = -3.0
@@ -194,7 +195,7 @@ theme_override_fonts/font = ExtResource("3_iqcer")
 theme_override_font_sizes/font_size = 16
 text = "99"
 
-[node name="InventorySlot4" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer" unique_id=1439711168]
+[node name="InventorySlot4" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer" unique_id=1439711168]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dvxeg")
@@ -202,14 +203,14 @@ theme_override_font_sizes/font_size = 16
 script = ExtResource("4_fgl3m")
 description = "After throwing, the 4 second countdown starts. Handle with care or else you’ll be the one going BOOM!!!"
 
-[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot4" unique_id=580961003]
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot4" unique_id=580961003]
 layout_mode = 0
 offset_right = 32.0
 offset_bottom = 32.0
 texture = SubResource("AtlasTexture_e0286")
 stretch_mode = 3
 
-[node name="BombCountLabel" type="Label" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot4" unique_id=250379185]
+[node name="BombCountLabel" type="Label" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot4" unique_id=250379185]
 unique_name_in_owner = true
 layout_mode = 0
 offset_top = -3.0
