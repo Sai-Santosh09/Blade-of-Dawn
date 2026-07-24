@@ -29,6 +29,11 @@
 [ext_resource type="Resource" uid="uid://dnai5rhhu8nrm" path="res://Items/bomb.tres" id="27_sbev4"]
 [ext_resource type="PackedScene" uid="uid://bfbl22iqitmia" path="res://Enemies/Slime/slime.tscn" id="28_45xa8"]
 [ext_resource type="PackedScene" uid="uid://cc2lg65elntjj" path="res://Interactables/grapple_post/grapple_post.tscn" id="29_sbev4"]
+[ext_resource type="PackedScene" uid="uid://dv33qkrf4cqn1" path="res://Interactables/TreasureChest/treasure_chest.tscn" id="30_vv7nh"]
+[ext_resource type="Resource" uid="uid://cpnhpq26m74ye" path="res://Items/ability_boomerang.tres" id="31_s3up8"]
+[ext_resource type="Resource" uid="uid://hmfamdr66cp4" path="res://Items/ability_arrow.tres" id="32_gm670"]
+[ext_resource type="Resource" uid="uid://bxw34jd5hn2gw" path="res://Items/ability_bomb.tres" id="33_fw76p"]
+[ext_resource type="Resource" uid="uid://c4ryurfwlyran" path="res://Items/ability_grapple.tres" id="34_r117l"]
 
 [sub_resource type="GDScript" id="GDScript_d1jyu"]
 script/source = "extends Node
@@ -303,3 +308,19 @@ position = Vector2(412, 363)
 
 [node name="GrapplePost2" parent="." unique_id=178160897 instance=ExtResource("29_sbev4")]
 position = Vector2(180, 495)
+
+[node name="TreasureChest" parent="." unique_id=1016903488 instance=ExtResource("30_vv7nh")]
+position = Vector2(54, 211)
+item_data = ExtResource("31_s3up8")
+
+[node name="TreasureChest2" parent="." unique_id=996962312 instance=ExtResource("30_vv7nh")]
+position = Vector2(89, 211)
+item_data = ExtResource("32_gm670")
+
+[node name="TreasureChest3" parent="." unique_id=2099747717 instance=ExtResource("30_vv7nh")]
+position = Vector2(124, 211)
+item_data = ExtResource("33_fw76p")
+
+[node name="TreasureChest4" parent="." unique_id=1572481885 instance=ExtResource("30_vv7nh")]
+position = Vector2(159, 211)
+item_data = ExtResource("34_r117l")
