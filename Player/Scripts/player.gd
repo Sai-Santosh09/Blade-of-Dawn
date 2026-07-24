@@ -14,6 +14,7 @@ var direction : Vector2 = Vector2.ZERO
 @onready var lift: State_Lift = $StateMachine/Lift
 @onready var held_item: Node2D = $Sprite2D/HeldItem
 @onready var carry: StateCarry = $StateMachine/Carry
+@onready var player_abilities: PlayerAbilities = $Abilities
 
 
 signal DirectionChanged( new_direction : Vector2 )
