@@ -304,10 +304,10 @@ item_count = 5
 position = Vector2(224, 296)
 
 [node name="GrapplePost" parent="." unique_id=528800505 instance=ExtResource("29_sbev4")]
-position = Vector2(412, 363)
+position = Vector2(412, 360)
 
 [node name="GrapplePost2" parent="." unique_id=178160897 instance=ExtResource("29_sbev4")]
-position = Vector2(180, 495)
+position = Vector2(180, 507)
 
 [node name="TreasureChest" parent="." unique_id=1016903488 instance=ExtResource("30_vv7nh")]
 position = Vector2(54, 211)

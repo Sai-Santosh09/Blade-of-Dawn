@@ -2110,7 +2110,7 @@ process_material = SubResource("ParticleProcessMaterial_8ynux")
 
 [node name="GrappleHook" type="Node2D" parent="." unique_id=824470364]
 unique_name_in_owner = true
-position = Vector2(0, -14)
+position = Vector2(0, -16)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="GrappleHook" unique_id=305792783]
 offset_left = -16.0

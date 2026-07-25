@@ -26,8 +26,8 @@ var tween : Tween
 var next_state : State = null
 
 var positions : Array[ Vector3 ] = [
-	Vector3( 8.0, -20.0, 180.0 ),
-	Vector3( 8.0, -10.0, 0.0 ),
+	Vector3( 0.0, -20.0, 180.0 ),
+	Vector3( 0.0, -10.0, 0.0 ),
 	Vector3( -10.0, -15.0, 90.0 ),
 	Vector3( 10.0, -15.0, -90.0 ),
 ]
@@ -161,7 +161,7 @@ func grapple_player() -> void:
 	
 	var player_target : Vector2 = player.global_position
 	player_target += player.cardinal_direction * collision_distance
-	player_target -= player.cardinal_direction * 10
+	player_target -= player.cardinal_direction * nine_patch_size
 	
 	tween.parallel().tween_property(
 		player, "global_position",
