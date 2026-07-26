@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://dsmigm3fywul" path="res://Npc/00_npcs/00_hero.tres" id="8_5ckhh"]
 [ext_resource type="Script" uid="uid://ciki46bqvhken" path="res://Interactables/dialog/scripts/dialog_cutscene.gd" id="9_iqbtg"]
 [ext_resource type="Script" uid="uid://fhkxmf6klgg8" path="res://Interactables/dialog/scripts/cutscene_action_animation.gd" id="10_xjcpg"]
+[ext_resource type="Script" uid="uid://c068316vur4jq" path="res://Interactables/dialog/scripts/cutscene_action_move.gd" id="12_7src1"]
 [ext_resource type="PackedScene" uid="uid://3jnnokf0c7ya" path="res://Levels/level_transition.tscn" id="13_xjcpg"]
 
 [sub_resource type="Animation" id="Animation_iqbtg"]
@@ -102,6 +103,18 @@ script = ExtResource("7_71foy")
 text = "Damn smth happened here...[b] I am shit scared!!! [/b]"
 npc_info = ExtResource("4_d0id7")
 metadata/_custom_type_script = "uid://1sfkun374vc7"
+
+[node name="DialogCutscene3" type="Node" parent="NPC/DialogInteraction" unique_id=1183704786]
+script = ExtResource("9_iqbtg")
+metadata/_custom_type_script = "uid://ciki46bqvhken"
+
+[node name="CutsceneActionMove" type="Node" parent="NPC/DialogInteraction/DialogCutscene3" unique_id=1065257255]
+script = ExtResource("12_7src1")
+metadata/_custom_type_script = "uid://c068316vur4jq"
+
+[node name="CutsceneActionMove2" type="Node" parent="NPC/DialogInteraction/DialogCutscene3" unique_id=312079246]
+script = ExtResource("12_7src1")
+metadata/_custom_type_script = "uid://c068316vur4jq"
 
 [node name="DialogText2" type="Node" parent="NPC/DialogInteraction" unique_id=708329702]
 script = ExtResource("7_71foy")
