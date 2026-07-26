@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://dsmigm3fywul" path="res://Npc/00_npcs/00_hero.tres" id="8_5ckhh"]
 [ext_resource type="Script" uid="uid://ciki46bqvhken" path="res://Interactables/dialog/scripts/dialog_cutscene.gd" id="9_iqbtg"]
 [ext_resource type="Script" uid="uid://fhkxmf6klgg8" path="res://Interactables/dialog/scripts/cutscene_action_animation.gd" id="10_xjcpg"]
+[ext_resource type="PackedScene" uid="uid://3jnnokf0c7ya" path="res://Levels/level_transition.tscn" id="13_xjcpg"]
 
 [sub_resource type="Animation" id="Animation_iqbtg"]
 length = 0.001
@@ -44,10 +45,27 @@ tracks/0/keys = {
 "values": [0.0, 1.0]
 }
 
+[sub_resource type="Animation" id="Animation_7src1"]
+resource_name = "fade_to_normal"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7src1"]
 _data = {
 &"RESET": SubResource("Animation_iqbtg"),
-&"fade_to_black": SubResource("Animation_xjcpg")
+&"fade_to_black": SubResource("Animation_xjcpg"),
+&"fade_to_normal": SubResource("Animation_7src1")
 }
 
 [node name="04" type="Node2D" unique_id=1059073171]
@@ -91,9 +109,19 @@ text = "True I don't really understand what's wrong tho"
 npc_info = ExtResource("8_5ckhh")
 metadata/_custom_type_script = "uid://1sfkun374vc7"
 
+[node name="DialogCutscene2" type="Node" parent="NPC/DialogInteraction" unique_id=1501506538]
+script = ExtResource("9_iqbtg")
+metadata/_custom_type_script = "uid://ciki46bqvhken"
+
+[node name="CutsceneActionAnimation" type="Node" parent="NPC/DialogInteraction/DialogCutscene2" unique_id=163988365 node_paths=PackedStringArray("animation_player")]
+script = ExtResource("10_xjcpg")
+animation_player = NodePath("../../../../AnimationPlayer")
+animation_name = "fade_to_normal"
+metadata/_custom_type_script = "uid://fhkxmf6klgg8"
+
 [node name="DialogText3" type="Node" parent="NPC/DialogInteraction" unique_id=1992230338]
 script = ExtResource("7_71foy")
-text = "Who the heck are you!!! Are you the reason for this mysterious phenomenon"
+text = "Who the heck are you!!! Are you the reason for this mysterious phenomenon.. Ohh nvm"
 npc_info = ExtResource("4_d0id7")
 metadata/_custom_type_script = "uid://1sfkun374vc7"
 
@@ -103,3 +131,8 @@ libraries/ = SubResource("AnimationLibrary_7src1")
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=313878366]
 energy = 0.0
 blend_mode = 1
+
+[node name="LevelTransition" parent="." unique_id=1001559880 instance=ExtResource("13_xjcpg")]
+position = Vector2(0, 352)
+level = "uid://drxktf2gcxs11"
+target_transition_area = "LevelTransition2"
