@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://fhkxmf6klgg8" path="res://Interactables/dialog/scripts/cutscene_action_animation.gd" id="10_xjcpg"]
 [ext_resource type="Script" uid="uid://c068316vur4jq" path="res://Interactables/dialog/scripts/cutscene_action_move.gd" id="12_7src1"]
 [ext_resource type="PackedScene" uid="uid://3jnnokf0c7ya" path="res://Levels/level_transition.tscn" id="13_xjcpg"]
+[ext_resource type="PackedScene" uid="uid://6dlppqfo0wyr" path="res://Props/pots/pot.tscn" id="15_ikg4w"]
 
 [sub_resource type="Animation" id="Animation_iqbtg"]
 length = 0.001
@@ -88,11 +89,40 @@ wander_range = 3
 
 [node name="DialogInteraction" parent="NPC" unique_id=907827062 instance=ExtResource("6_5ckhh")]
 
+[node name="DialogCutscene_MOVE" type="Node" parent="NPC/DialogInteraction" unique_id=1183704786]
+script = ExtResource("9_iqbtg")
+metadata/_custom_type_script = "uid://ciki46bqvhken"
+
+[node name="CutsceneActionMove" type="Node2D" parent="NPC/DialogInteraction/DialogCutscene_MOVE" unique_id=1827365443 node_paths=PackedStringArray("object_to_move")]
+position = Vector2(428, 94)
+script = ExtResource("12_7src1")
+timing_method = 1
+object_to_move = NodePath("../../..")
+move_duration = 2.0
+metadata/_custom_type_script = "uid://c068316vur4jq"
+
+[node name="CutsceneActionMove2" type="Node2D" parent="NPC/DialogInteraction/DialogCutscene_MOVE" unique_id=2041455660 node_paths=PackedStringArray("object_to_move")]
+position = Vector2(332, 332)
+script = ExtResource("12_7src1")
+timing_method = 1
+object_to_move = NodePath("../../..")
+move_duration = 2.0
+move_speed = 400.0
+metadata/_custom_type_script = "uid://c068316vur4jq"
+
+[node name="CutsceneActionMove3" type="Node2D" parent="NPC/DialogInteraction/DialogCutscene_MOVE" unique_id=1443260523 node_paths=PackedStringArray("object_to_move")]
+position = Vector2(338, 98)
+script = ExtResource("12_7src1")
+object_to_move = NodePath("../../../../Pot")
+transition_type = 6
+move_duration = 1.0
+metadata/_custom_type_script = "uid://c068316vur4jq"
+
 [node name="DialogCutscene" type="Node" parent="NPC/DialogInteraction" unique_id=430185200]
 script = ExtResource("9_iqbtg")
 metadata/_custom_type_script = "uid://ciki46bqvhken"
 
-[node name="CutsceneActionAnimation" type="Node" parent="NPC/DialogInteraction/DialogCutscene" unique_id=608923720 node_paths=PackedStringArray("animation_player")]
+[node name="CutsceneActionAnimation" type="Node2D" parent="NPC/DialogInteraction/DialogCutscene" unique_id=1892837074 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("10_xjcpg")
 animation_player = NodePath("../../../../AnimationPlayer")
 animation_name = "fade_to_black"
@@ -104,18 +134,6 @@ text = "Damn smth happened here...[b] I am shit scared!!! [/b]"
 npc_info = ExtResource("4_d0id7")
 metadata/_custom_type_script = "uid://1sfkun374vc7"
 
-[node name="DialogCutscene3" type="Node" parent="NPC/DialogInteraction" unique_id=1183704786]
-script = ExtResource("9_iqbtg")
-metadata/_custom_type_script = "uid://ciki46bqvhken"
-
-[node name="CutsceneActionMove" type="Node" parent="NPC/DialogInteraction/DialogCutscene3" unique_id=1065257255]
-script = ExtResource("12_7src1")
-metadata/_custom_type_script = "uid://c068316vur4jq"
-
-[node name="CutsceneActionMove2" type="Node" parent="NPC/DialogInteraction/DialogCutscene3" unique_id=312079246]
-script = ExtResource("12_7src1")
-metadata/_custom_type_script = "uid://c068316vur4jq"
-
 [node name="DialogText2" type="Node" parent="NPC/DialogInteraction" unique_id=708329702]
 script = ExtResource("7_71foy")
 text = "True I don't really understand what's wrong tho"
@@ -126,7 +144,7 @@ metadata/_custom_type_script = "uid://1sfkun374vc7"
 script = ExtResource("9_iqbtg")
 metadata/_custom_type_script = "uid://ciki46bqvhken"
 
-[node name="CutsceneActionAnimation" type="Node" parent="NPC/DialogInteraction/DialogCutscene2" unique_id=163988365 node_paths=PackedStringArray("animation_player")]
+[node name="CutsceneActionAnimation" type="Node2D" parent="NPC/DialogInteraction/DialogCutscene2" unique_id=1671408084 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("10_xjcpg")
 animation_player = NodePath("../../../../AnimationPlayer")
 animation_name = "fade_to_normal"
@@ -149,3 +167,6 @@ blend_mode = 1
 position = Vector2(0, 352)
 level = "uid://drxktf2gcxs11"
 target_transition_area = "LevelTransition2"
+
+[node name="Pot" parent="." unique_id=60766000 instance=ExtResource("15_ikg4w")]
+position = Vector2(256, 261)
