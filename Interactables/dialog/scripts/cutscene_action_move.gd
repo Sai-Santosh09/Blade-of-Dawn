@@ -14,7 +14,7 @@ enum Method { DURATION, SPEED }
 
 var target_location : Vector2 = Vector2.ZERO
 var move_direction : Vector2 = Vector2.ZERO
-var distance_to_target : float = 0
+var distance_to_target : float = 0.0
 
 
 func _ready() -> void:

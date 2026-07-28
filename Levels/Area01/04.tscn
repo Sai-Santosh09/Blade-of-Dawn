@@ -9,9 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://chvc2520igbtc" path="res://Npc/npc_behavior_wander.tscn" id="5_d0id7"]
 [ext_resource type="PackedScene" uid="uid://buhftjoahphpd" path="res://Interactables/dialog/dialog_interaction.tscn" id="6_5ckhh"]
 [ext_resource type="Script" uid="uid://1sfkun374vc7" path="res://Interactables/dialog/scripts/dialog_text.gd" id="7_71foy"]
-[ext_resource type="Resource" uid="uid://dsmigm3fywul" path="res://Npc/00_npcs/00_hero.tres" id="8_5ckhh"]
 [ext_resource type="Script" uid="uid://ciki46bqvhken" path="res://Interactables/dialog/scripts/dialog_cutscene.gd" id="9_iqbtg"]
-[ext_resource type="Script" uid="uid://fhkxmf6klgg8" path="res://Interactables/dialog/scripts/cutscene_action_animation.gd" id="10_xjcpg"]
+[ext_resource type="Script" uid="uid://3g7ub7pwk6ro" path="res://Interactables/dialog/scripts/cutscene_action_camera.gd" id="10_h7p5o"]
 [ext_resource type="Script" uid="uid://c068316vur4jq" path="res://Interactables/dialog/scripts/cutscene_action_move.gd" id="12_7src1"]
 [ext_resource type="PackedScene" uid="uid://3jnnokf0c7ya" path="res://Levels/level_transition.tscn" id="13_xjcpg"]
 [ext_resource type="PackedScene" uid="uid://6dlppqfo0wyr" path="res://Props/pots/pot.tscn" id="15_ikg4w"]
@@ -93,6 +92,18 @@ wander_range = 3
 script = ExtResource("9_iqbtg")
 metadata/_custom_type_script = "uid://ciki46bqvhken"
 
+[node name="CutsceneActionCamera" type="Node2D" parent="NPC/DialogInteraction/DialogCutscene_MOVE" unique_id=1034674873]
+position = Vector2(106, 205)
+script = ExtResource("10_h7p5o")
+move_duration = 2.0
+metadata/_custom_type_script = "uid://3g7ub7pwk6ro"
+
+[node name="CutsceneActionCamera2" type="Node2D" parent="NPC/DialogInteraction/DialogCutscene_MOVE" unique_id=24325360]
+position = Vector2(567, 202)
+script = ExtResource("10_h7p5o")
+move_duration = 2.0
+metadata/_custom_type_script = "uid://3g7ub7pwk6ro"
+
 [node name="CutsceneActionMove" type="Node2D" parent="NPC/DialogInteraction/DialogCutscene_MOVE" unique_id=1827365443 node_paths=PackedStringArray("object_to_move")]
 position = Vector2(428, 94)
 script = ExtResource("12_7src1")
@@ -118,41 +129,9 @@ transition_type = 6
 move_duration = 1.0
 metadata/_custom_type_script = "uid://c068316vur4jq"
 
-[node name="DialogCutscene" type="Node" parent="NPC/DialogInteraction" unique_id=430185200]
-script = ExtResource("9_iqbtg")
-metadata/_custom_type_script = "uid://ciki46bqvhken"
-
-[node name="CutsceneActionAnimation" type="Node2D" parent="NPC/DialogInteraction/DialogCutscene" unique_id=1892837074 node_paths=PackedStringArray("animation_player")]
-script = ExtResource("10_xjcpg")
-animation_player = NodePath("../../../../AnimationPlayer")
-animation_name = "fade_to_black"
-metadata/_custom_type_script = "uid://fhkxmf6klgg8"
-
 [node name="DialogText" type="Node" parent="NPC/DialogInteraction" unique_id=77291524]
 script = ExtResource("7_71foy")
-text = "Damn smth happened here...[b] I am shit scared!!! [/b]"
-npc_info = ExtResource("4_d0id7")
-metadata/_custom_type_script = "uid://1sfkun374vc7"
-
-[node name="DialogText2" type="Node" parent="NPC/DialogInteraction" unique_id=708329702]
-script = ExtResource("7_71foy")
-text = "True I don't really understand what's wrong tho"
-npc_info = ExtResource("8_5ckhh")
-metadata/_custom_type_script = "uid://1sfkun374vc7"
-
-[node name="DialogCutscene2" type="Node" parent="NPC/DialogInteraction" unique_id=1501506538]
-script = ExtResource("9_iqbtg")
-metadata/_custom_type_script = "uid://ciki46bqvhken"
-
-[node name="CutsceneActionAnimation" type="Node2D" parent="NPC/DialogInteraction/DialogCutscene2" unique_id=1671408084 node_paths=PackedStringArray("animation_player")]
-script = ExtResource("10_xjcpg")
-animation_player = NodePath("../../../../AnimationPlayer")
-animation_name = "fade_to_normal"
-metadata/_custom_type_script = "uid://fhkxmf6klgg8"
-
-[node name="DialogText3" type="Node" parent="NPC/DialogInteraction" unique_id=1992230338]
-script = ExtResource("7_71foy")
-text = "Who the heck are you!!! Are you the reason for this mysterious phenomenon.. Ohh nvm"
+text = "Damn smth happened here...[b] I am moving without my own will!!! [/b]"
 npc_info = ExtResource("4_d0id7")
 metadata/_custom_type_script = "uid://1sfkun374vc7"
 

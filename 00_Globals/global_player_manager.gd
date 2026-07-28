@@ -75,3 +75,14 @@ func interact() -> void:
 
 func shake_camera( trauma : float = 1 ) -> void:
 	camera_shook.emit( clampf( trauma, 0, 3 ) )
+
+
+func reset_camera_on_player() -> void:
+	var camera : Camera2D = get_viewport().get_camera_2d()
+	if camera:
+		if camera.get_parent() == player:
+			print("Camera Already on player son...")
+			return
+		camera.reparent( player )
+		camera.position = Vector2.ZERO
+	pass
