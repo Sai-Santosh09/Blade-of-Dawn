@@ -2023,6 +2023,8 @@ grapple_fire_audio = ExtResource("29_ie76m")
 grapple_stick_audio = ExtResource("30_dy65m")
 grapple_bounce_audio = ExtResource("31_maysp")
 
+[node name="Cutscene" type="Node" parent="StateMachine" unique_id=180815546]
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1001298927]
 position = Vector2(0, -1)
 script = ExtResource("12_8viyr")

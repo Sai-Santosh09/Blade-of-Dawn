@@ -2,6 +2,7 @@
 @icon("res://GUI/dialog_system/icons/star_bubble.svg")
 class_name DialogSystemNode extends CanvasLayer
 
+signal started
 signal finished
 signal letter_added( letter : String )
 
@@ -82,6 +83,7 @@ func show_dialog( _items : Array[ DialogItem ] ) -> void:
 	dialog_item_index = 0
 	get_tree().paused = true
 	await get_tree().process_frame
+	started.emit()
 	if dialog_items.size() == 0:
 		hide_dialog()
 	else:
