@@ -41,7 +41,6 @@ func play() -> void:
 			npc.update_direction( target_location )
 			npc.update_animation()
 			npc.animation.speed_scale = move_speed / animation_speed_factor
-			pass
 		
 		#pot bug fix
 		self.process_mode = Node.PROCESS_MODE_ALWAYS

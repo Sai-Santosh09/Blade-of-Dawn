@@ -28,64 +28,65 @@ func _ready() -> void:
 
 
 func play() -> void:
-	#distance_to_target = calculate_distance_to_target()
-		
+	var player : Player = PlayerManager.player
+	
+	start_location = player.global_position
+	distance_to_target = start_location.distance_to( target_location )
+	move_direction = start_location.direction_to( target_location )
+	
+	player.process_mode = Node.PROCESS_MODE_ALWAYS
+	player.direction = move_direction 
+	player.SetDirection()
+	player.UpdateAnimation( animation_name )
+	
 	if timing_method == Method.SPEED:
 		move_duration = distance_to_target / move_speed
 	else:
 		move_speed = distance_to_target / move_duration
-		
-		if object_to_move is NPC:
-			var npc : NPC = object_to_move
-			npc.do_behavior = false
-			npc.state = "walk"
-			npc.direction = move_direction
-			npc.update_direction( target_location )
-			npc.update_animation()
-			npc.animation.speed_scale = move_speed / animation_speed_factor
-			pass
-		
-		#pot bug fix
-		self.process_mode = Node.PROCESS_MODE_ALWAYS
-		var tween : Tween = create_tween()
-		tween.set_ease( easing_method )
-		tween.set_trans( transition_type )
-		tween.tween_property( object_to_move, "global_position", target_location, move_duration )
-		tween.tween_callback( _on_tween_finished )
-		pass
-	else:
-		finished.emit()
+	
+	if scale_animation_with_movement:
+		var anim_speed_scale : float = move_speed / animation_speed_factor
+		player.animation_player.speed_scale = anim_speed_scale
+	
+	
+	#pot bug fix
+	self.process_mode = Node.PROCESS_MODE_ALWAYS
+	var tween : Tween = create_tween()
+	tween.set_ease( easing_method )
+	tween.set_trans( transition_type )
+	tween.tween_property( player, "global_position", target_location, move_duration )
+	tween.tween_callback( _on_tween_finished )
 	pass
-
-
-func get_move_direction() -> void:
-	if object_to_move:
-		move_direction = object_to_move.global_position.direction_to( target_location )
-	pass
-
-
-func calculate_distance_to_target() -> float:
-	return object_to_move.global_position.distance_to( target_location )
 
 
 func _on_tween_finished() -> void:
-	object_to_move.process_mode = Node.PROCESS_MODE_INHERIT
-	#pot bug fix
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
-	
-	if object_to_move is NPC:
-		var npc : NPC = object_to_move
-		npc.do_behavior = true
-		npc.state = "idle"
-		npc.animation.speed_scale = 1
-		npc.process_mode = Node.PROCESS_MODE_INHERIT
+	var player : Player = PlayerManager.player
+	player.animation_player.speed_scale = 1.0
+	player.direction = get_facing_direction()
+	player.SetDirection()
+	player.UpdateAnimation( "Idle" )
 	
 	finished.emit()
 	pass
 
 
+func get_facing_direction() -> Vector2:
+	match finish_direction:
+		"up":
+			return Vector2.UP
+		"down":
+			return Vector2.DOWN
+		"left":
+			return Vector2.LEFT
+		"right":
+			return Vector2.RIGHT
+		_:
+			return Vector2.UP
+
+
 func _draw() -> void:
 	if Engine.is_editor_hint():
-		draw_circle( Vector2.ZERO, 3, Color.RED )
-		draw_circle( Vector2.ZERO, 10, Color(1.0, 0.0, 0.0, 0.5), false, 1.0 )
+		draw_circle( Vector2.ZERO, 3, Color.GREEN_YELLOW )
+		draw_circle( Vector2.ZERO, 10, Color.LIME_GREEN, false, 1.0 )
 	pass

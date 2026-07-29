@@ -94,7 +94,10 @@ script = ExtResource("9_iqbtg")
 metadata/_custom_type_script = "uid://ciki46bqvhken"
 
 [node name="CutsceneActionPlayer" type="Node2D" parent="NPC/DialogInteraction/DialogCutscene_MOVE" unique_id=1066660642]
+position = Vector2(246, 133)
 script = ExtResource("10_ikg4w")
+finish_direction = "right"
+timing_method = 1
 metadata/_custom_type_script = "uid://dpmanf4gade23"
 
 [node name="CutsceneActionCamera" type="Node2D" parent="NPC/DialogInteraction/DialogCutscene_MOVE" unique_id=1034674873]
