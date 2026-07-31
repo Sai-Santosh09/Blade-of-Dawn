@@ -16,7 +16,6 @@
 [ext_resource type="Script" uid="uid://cr346808fxixe" path="res://Enemies/Scripts/drop_data.gd" id="13_nsi17"]
 [ext_resource type="Resource" uid="uid://dl6owprmny0gu" path="res://Items/gem.tres" id="14_vjyi2"]
 [ext_resource type="Resource" uid="uid://dy1l6qqnwlkvx" path="res://Items/potion.tres" id="15_vjyi2"]
-[ext_resource type="Resource" uid="uid://dx5gpd7328ydo" path="res://Items/key_dungeon.tres" id="16_yynal"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t1krp"]
 radius = 14.035668
@@ -725,13 +724,6 @@ probability = 33.0
 min_amount = 0
 metadata/_custom_type_script = "uid://cr346808fxixe"
 
-[sub_resource type="Resource" id="Resource_5lnrd"]
-script = ExtResource("13_nsi17")
-item = ExtResource("16_yynal")
-probability = 1.0
-min_amount = 0
-metadata/_custom_type_script = "uid://cr346808fxixe"
-
 [sub_resource type="Animation" id="Animation_3ktsd"]
 length = 0.001
 tracks/0/type = "value"
@@ -851,7 +843,7 @@ next_state = NodePath("../Idle")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine" unique_id=840380274]
 script = ExtResource("12_843tw")
-drops = Array[ExtResource("13_nsi17")]([SubResource("Resource_yynal"), SubResource("Resource_67htc"), SubResource("Resource_5lnrd")])
+drops = Array[ExtResource("13_nsi17")]([SubResource("Resource_yynal"), SubResource("Resource_67htc")])
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1809368798]
 max_polyphony = 4
