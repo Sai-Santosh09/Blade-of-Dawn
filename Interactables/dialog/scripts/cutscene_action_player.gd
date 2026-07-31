@@ -29,6 +29,8 @@ func _ready() -> void:
 
 func play() -> void:
 	var player : Player = PlayerManager.player
+	var camera : Camera2D = get_viewport().get_camera_2d()
+	camera.process_mode = Node.PROCESS_MODE_ALWAYS
 	
 	start_location = player.global_position
 	distance_to_target = start_location.distance_to( target_location )
@@ -38,6 +40,9 @@ func play() -> void:
 	player.direction = move_direction 
 	player.SetDirection()
 	player.UpdateAnimation( animation_name )
+	
+	if reset_camera_to_player:
+		PlayerManager.reset_camera_on_player()
 	
 	if timing_method == Method.SPEED:
 		move_duration = distance_to_target / move_speed
