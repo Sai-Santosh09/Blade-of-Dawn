@@ -6,6 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://bfbl22iqitmia" path="res://Enemies/Slime/slime.tscn" id="3_koc1c"]
 [ext_resource type="PackedScene" uid="uid://be3ek6w07ogid" path="res://Levels/player_spawn.tscn" id="3_ryupc"]
 [ext_resource type="PackedScene" uid="uid://3jnnokf0c7ya" path="res://Levels/level_transition.tscn" id="5_koc1c"]
+[ext_resource type="PackedScene" uid="uid://lvpfumdb0yyo" path="res://Npc/npc.tscn" id="7_gv52n"]
+[ext_resource type="PackedScene" uid="uid://dl08bvo13qim8" path="res://Npc/npc_behavior_patrol.tscn" id="8_crp14"]
+[ext_resource type="Resource" uid="uid://cyhhgmm3w27ou" path="res://Npc/00_npcs/npc_02.tres" id="8_v72oj"]
+[ext_resource type="PackedScene" uid="uid://byy1sqslbs1p6" path="res://Npc/patrol_location.tscn" id="9_crp14"]
+[ext_resource type="PackedScene" uid="uid://buhftjoahphpd" path="res://Interactables/dialog/dialog_interaction.tscn" id="10_lry6g"]
+[ext_resource type="Script" uid="uid://1sfkun374vc7" path="res://Interactables/dialog/scripts/dialog_text.gd" id="11_v72oj"]
+[ext_resource type="Resource" uid="uid://dsmigm3fywul" path="res://Npc/00_npcs/00_hero.tres" id="13_q54cq"]
+[ext_resource type="Script" uid="uid://dxpsriu3mlght" path="res://Interactables/dialog/scripts/dialog_choice.gd" id="14_n7k4n"]
+[ext_resource type="Script" uid="uid://cb5n5wpgyk8h2" path="res://Interactables/dialog/scripts/dialog_branch.gd" id="15_ok2uc"]
 
 [node name="03" type="Node2D" unique_id=1886884403]
 script = ExtResource("1_diysa")
@@ -60,3 +69,84 @@ position = Vector2(805, 446)
 position = Vector2(-160, 384)
 level = "uid://pe6m1ydy5wqo"
 target_transition_area = "LevelTransition2"
+
+[node name="NPC" parent="." unique_id=1320860532 instance=ExtResource("7_gv52n")]
+position = Vector2(333, 263)
+npc_resource = ExtResource("8_v72oj")
+
+[node name="NpcBehaviorPatrol" parent="NPC" unique_id=1809649480 instance=ExtResource("8_crp14")]
+
+[node name="PatrolLocation" parent="NPC/NpcBehaviorPatrol" unique_id=899123621 instance=ExtResource("9_crp14")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(36, -4)
+wait_time = 1.0
+
+[node name="PatrolLocation2" parent="NPC/NpcBehaviorPatrol" unique_id=1689828756 instance=ExtResource("9_crp14")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(-115, -4)
+wait_time = 1.0
+
+[node name="PatrolLocation3" parent="NPC/NpcBehaviorPatrol" unique_id=995231782 instance=ExtResource("9_crp14")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(-115, 81)
+wait_time = 1.0
+
+[node name="PatrolLocation4" parent="NPC/NpcBehaviorPatrol" unique_id=1779756606 instance=ExtResource("9_crp14")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(36, 81)
+wait_time = 1.5
+
+[node name="DialogInteraction" parent="NPC" unique_id=907827062 instance=ExtResource("10_lry6g")]
+
+[node name="DialogText" type="Node" parent="NPC/DialogInteraction" unique_id=161251920]
+script = ExtResource("11_v72oj")
+text = "What the hell happened here... This place is filled with [wave] slimes!!!"
+npc_info = ExtResource("8_v72oj")
+metadata/_custom_type_script = "uid://1sfkun374vc7"
+
+[node name="DialogText2" type="Node" parent="NPC/DialogInteraction" unique_id=801511525]
+script = ExtResource("11_v72oj")
+text = "Hmm you are correct, it's slimes everywhere lol!"
+npc_info = ExtResource("13_q54cq")
+metadata/_custom_type_script = "uid://1sfkun374vc7"
+
+[node name="DialogText3" type="Node" parent="NPC/DialogInteraction" unique_id=1212104009]
+script = ExtResource("11_v72oj")
+text = "Damn it's the hero!!! It's a pleasure to meet you... I humbly request you to wipe out every single slime in this area.."
+npc_info = ExtResource("8_v72oj")
+metadata/_custom_type_script = "uid://1sfkun374vc7"
+
+[node name="DialogChoice" type="Node" parent="NPC/DialogInteraction" unique_id=1237121032]
+script = ExtResource("14_n7k4n")
+npc_info = ExtResource("8_v72oj")
+metadata/_custom_type_script = "uid://dxpsriu3mlght"
+
+[node name="DialogBranch" type="Node" parent="NPC/DialogInteraction/DialogChoice" unique_id=1575559982]
+script = ExtResource("15_ok2uc")
+text = "Ofc I am ready to help"
+npc_info = ExtResource("8_v72oj")
+metadata/_custom_type_script = "uid://cb5n5wpgyk8h2"
+
+[node name="DialogText" type="Node" parent="NPC/DialogInteraction/DialogChoice/DialogBranch" unique_id=1356088961]
+script = ExtResource("11_v72oj")
+text = "That's what I would expect to here from our saviour!!!"
+npc_info = ExtResource("8_v72oj")
+metadata/_custom_type_script = "uid://1sfkun374vc7"
+
+[node name="DialogText2" type="Node" parent="NPC/DialogInteraction/DialogChoice/DialogBranch" unique_id=1730026622]
+script = ExtResource("11_v72oj")
+text = "Stop it bruh, you making me embarrased..."
+npc_info = ExtResource("13_q54cq")
+metadata/_custom_type_script = "uid://1sfkun374vc7"
+
+[node name="DialogBranch2" type="Node" parent="NPC/DialogInteraction/DialogChoice" unique_id=2087126761]
+script = ExtResource("15_ok2uc")
+text = "Hmm why should I help you..."
+npc_info = ExtResource("8_v72oj")
+metadata/_custom_type_script = "uid://cb5n5wpgyk8h2"
+
+[node name="DialogText" type="Node" parent="NPC/DialogInteraction/DialogChoice/DialogBranch2" unique_id=1578445804]
+script = ExtResource("11_v72oj")
+text = "What in the world is happening!! Hero joined forces with monsters or what..."
+npc_info = ExtResource("8_v72oj")
+metadata/_custom_type_script = "uid://1sfkun374vc7"

@@ -13,6 +13,17 @@
 [ext_resource type="AudioStream" uid="uid://dhnid2br4cdl6" path="res://Levels/music/example_music_01.ogg" id="10_f2d14"]
 [ext_resource type="PackedScene" uid="uid://6dlppqfo0wyr" path="res://Props/pots/pot.tscn" id="11_an23e"]
 [ext_resource type="Resource" uid="uid://btgy1pxbpcf2i" path="res://Items/apple.tres" id="11_uv5ft"]
+[ext_resource type="PackedScene" uid="uid://lvpfumdb0yyo" path="res://Npc/npc.tscn" id="14_ay7cg"]
+[ext_resource type="Resource" uid="uid://chq18xv2s7kpc" path="res://Npc/00_npcs/npc_01.tres" id="15_t4onu"]
+[ext_resource type="PackedScene" uid="uid://dxtl8qdv41rqt" path="res://GeneralNodes/area_trigger/area_trigger.tscn" id="16_8k3ch"]
+[ext_resource type="PackedScene" uid="uid://chvc2520igbtc" path="res://Npc/npc_behavior_wander.tscn" id="16_ylqqd"]
+[ext_resource type="PackedScene" uid="uid://buhftjoahphpd" path="res://Interactables/dialog/dialog_interaction.tscn" id="17_ylqqd"]
+[ext_resource type="Script" uid="uid://ciki46bqvhken" path="res://Interactables/dialog/scripts/dialog_cutscene.gd" id="18_mpmqi"]
+[ext_resource type="Script" uid="uid://bx2sign2cy4we" path="res://Interactables/dialog/scripts/cutscene_action_music.gd" id="19_hvqxe"]
+[ext_resource type="AudioStream" uid="uid://bc0ec83l3i0ax" path="res://Levels/music/example_music_03.ogg" id="20_blojo"]
+[ext_resource type="Script" uid="uid://dpmanf4gade23" path="res://Interactables/dialog/scripts/cutscene_action_player.gd" id="21_7f7fh"]
+[ext_resource type="Script" uid="uid://3g7ub7pwk6ro" path="res://Interactables/dialog/scripts/cutscene_action_camera.gd" id="22_udmb2"]
+[ext_resource type="Script" uid="uid://1sfkun374vc7" path="res://Interactables/dialog/scripts/dialog_text.gd" id="23_jjkwr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h3k26"]
 texture = ExtResource("4_an23e")
@@ -506,6 +517,9 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_h3k26")
 sources/1 = SubResource("TileSetAtlasSource_1kv2d")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gedoq"]
+size = Vector2(105, 105)
+
 [node name="01" type="Node2D" unique_id=1172810449]
 script = ExtResource("1_22ele")
 music = ExtResource("10_f2d14")
@@ -584,3 +598,52 @@ position = Vector2(357, 208)
 
 [node name="Pot5" parent="." unique_id=1362946536 instance=ExtResource("11_an23e")]
 position = Vector2(333, 208)
+
+[node name="NPC" parent="." unique_id=1373090265 instance=ExtResource("14_ay7cg")]
+position = Vector2(172, 154)
+npc_resource = ExtResource("15_t4onu")
+
+[node name="NpcWanderBehavior" parent="NPC" unique_id=391012653 instance=ExtResource("16_ylqqd")]
+wander_range = 1
+
+[node name="AreaTrigger" parent="." unique_id=2041436427 instance=ExtResource("16_8k3ch")]
+position = Vector2(172, 154)
+
+[node name="DialogInteraction" parent="AreaTrigger" unique_id=907827062 instance=ExtResource("17_ylqqd")]
+
+[node name="DialogCutscene" type="Node" parent="AreaTrigger/DialogInteraction" unique_id=1437325488]
+script = ExtResource("18_mpmqi")
+metadata/_custom_type_script = "uid://ciki46bqvhken"
+
+[node name="CutsceneActionMusic" type="Node2D" parent="AreaTrigger/DialogInteraction/DialogCutscene" unique_id=952543792]
+script = ExtResource("19_hvqxe")
+track = ExtResource("20_blojo")
+metadata/_custom_type_script = "uid://bx2sign2cy4we"
+
+[node name="CutsceneActionPlayer" type="Node2D" parent="AreaTrigger/DialogInteraction/DialogCutscene" unique_id=1329629504]
+position = Vector2(227, 147)
+script = ExtResource("21_7f7fh")
+finish_direction = "left"
+timing_method = 1
+metadata/_custom_type_script = "uid://dpmanf4gade23"
+
+[node name="CutsceneActionCamera" type="Node2D" parent="AreaTrigger/DialogInteraction/DialogCutscene" unique_id=925470326]
+position = Vector2(75, 144)
+script = ExtResource("22_udmb2")
+move_duration = 2.0
+metadata/_custom_type_script = "uid://3g7ub7pwk6ro"
+
+[node name="CutsceneActionCamera2" type="Node2D" parent="AreaTrigger/DialogInteraction/DialogCutscene" unique_id=1716814396]
+position = Vector2(295, 149)
+script = ExtResource("22_udmb2")
+move_duration = 2.0
+metadata/_custom_type_script = "uid://3g7ub7pwk6ro"
+
+[node name="DialogText" type="Node" parent="AreaTrigger/DialogInteraction" unique_id=2062579586]
+script = ExtResource("23_jjkwr")
+text = "Welcome traveler!! Open this chest to get some rewards and safe travels."
+npc_info = ExtResource("15_t4onu")
+metadata/_custom_type_script = "uid://1sfkun374vc7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTrigger" unique_id=321911016]
+shape = SubResource("RectangleShape2D_gedoq")

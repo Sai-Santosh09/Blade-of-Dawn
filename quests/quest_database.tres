@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="QuestDatabase" format=3 uid="uid://chs67vm2rphxk"]
+
+[ext_resource type="Script" uid="uid://bquaq7tastx0n" path="res://quests/scripts/quest_resource.gd" id="1_iusdv"]
+[ext_resource type="Resource" uid="uid://c2ww3ctnmwdv2" path="res://quests/collect_the_flute.tres" id="2_s0x2p"]
+[ext_resource type="Script" uid="uid://ctk7ks3xn2bn6" path="res://quests/scripts/quest_database.gd" id="2_vywin"]
+[ext_resource type="Resource" uid="uid://bsmn376prok3y" path="res://quests/long_quest.tres" id="3_k0nkk"]
+[ext_resource type="Resource" uid="uid://chn38n738ltah" path="res://quests/short_quest.tres" id="4_41wdf"]
+
+[resource]
+script = ExtResource("2_vywin")
+quests = Array[ExtResource("1_iusdv")]([ExtResource("2_s0x2p"), ExtResource("3_k0nkk"), ExtResource("4_41wdf")])
+metadata/_custom_type_script = "uid://ctk7ks3xn2bn6"

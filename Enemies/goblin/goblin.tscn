@@ -688,7 +688,7 @@ metadata/_custom_type_script = "uid://cr346808fxixe"
 script = ExtResource("13_2jhu3")
 item = ExtResource("16_6qarh")
 probability = 20.0
-max_amount = 5
+max_amount = 2
 metadata/_custom_type_script = "uid://cr346808fxixe"
 
 [sub_resource type="Animation" id="Animation_3ktsd"]

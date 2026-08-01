@@ -7,8 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://3jnnokf0c7ya" path="res://Levels/level_transition.tscn" id="4_t4df7"]
 [ext_resource type="PackedScene" uid="uid://depdlt3bv8r62" path="res://Interactables/dungeon/locked_door.tscn" id="5_2wffi"]
 [ext_resource type="PackedScene" uid="uid://bddn2owiiapkm" path="res://Enemies/goblin/goblin.tscn" id="7_m7vwt"]
-[ext_resource type="PackedScene" uid="uid://dv33qkrf4cqn1" path="res://Interactables/TreasureChest/treasure_chest.tscn" id="8_bbxeb"]
-[ext_resource type="Resource" uid="uid://btgy1pxbpcf2i" path="res://Items/apple.tres" id="9_os54b"]
+[ext_resource type="PackedScene" uid="uid://bfbl22iqitmia" path="res://Enemies/Slime/slime.tscn" id="8_m2303"]
 
 [node name="02" type="Node2D" unique_id=679077714]
 script = ExtResource("1_uxhjo")
@@ -41,14 +40,27 @@ size = 3
 side = 1
 
 [node name="Goblin" parent="." unique_id=275214460 instance=ExtResource("7_m7vwt")]
-position = Vector2(129, 26)
+position = Vector2(166, 288)
 hp = 2
 
 [node name="Goblin2" parent="." unique_id=912269573 instance=ExtResource("7_m7vwt")]
 position = Vector2(647, 286)
 hp = 2
 
-[node name="TreasureChest" parent="." unique_id=1595104518 instance=ExtResource("8_bbxeb")]
-position = Vector2(192, 245)
-item_data = ExtResource("9_os54b")
-quantity = 3
+[node name="Goblin3" parent="." unique_id=1032883265 instance=ExtResource("7_m7vwt")]
+position = Vector2(381, 164)
+scale = Vector2(2, 2)
+hp = 5
+xp_reward = 30
+
+[node name="Slime" parent="." unique_id=1260033572 instance=ExtResource("8_m2303")]
+position = Vector2(148, 39)
+
+[node name="Slime2" parent="." unique_id=913597157 instance=ExtResource("8_m2303")]
+position = Vector2(636, 39)
+
+[node name="Slime3" parent="." unique_id=633538779 instance=ExtResource("8_m2303")]
+position = Vector2(595, 39)
+
+[node name="Slime4" parent="." unique_id=584403742 instance=ExtResource("8_m2303")]
+position = Vector2(186, 39)

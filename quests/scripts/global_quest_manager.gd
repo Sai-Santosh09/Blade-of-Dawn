@@ -3,7 +3,7 @@ extends Node
 
 signal quest_updated( q )
 
-const QUEST_DATA_LOCATION : String = "res://quests/"
+@export var quest_db : QuestDatabase = preload("res://quests/quest_database.tres")
 
 var quests : Array[ Quest ]
 var current_quests : Array = []
@@ -15,32 +15,14 @@ func _ready() -> void:
 	pass
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("test"):
-		
-		#update_quest("Short Quest", "")
-		#update_quest("Find the Flute", "", true)
-		#update_quest("Long Quest", "step 1")
-		#update_quest("Long Quest", "step 2")
-		print( "Quests : ", current_quests )
-		pass
-	pass
-
-
 func gather_quest_data() -> void:
 	#gather all the quests and add it in the quests Array
-	var quest_files : PackedStringArray = DirAccess.get_files_at( QUEST_DATA_LOCATION )
 	quests.clear()
-	for q in quest_files:
-		
-		if q.ends_with(".remap"):
-			continue
-		
-		if not q.ends_with(".tres") and not q.ends_with(".res"):
-			continue
-		
-		quests.append( load( QUEST_DATA_LOCATION + q ) as Quest )
-	print( "Quest Count: " ,quests.size() )
+	if quest_db and quest_db.quests:
+		quests = quest_db.quests.duplicate()
+		print( "Quest Count: " ,quests.size() )
+	else:
+		push_error( "QuestManager: QuestDatabase resource is missing or empty!" )
 	pass
 
 
