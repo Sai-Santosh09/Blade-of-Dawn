@@ -42,3 +42,10 @@ You can change these in **Project → Project Settings → Input Map**.
 
 ## Web Playable Link
 - Link : https://mech-2782.itch.io/blade-of-dawn
+
+## Imatges
+<img width="2290" height="1288" alt="Screenshot 2026-10-24 143159" src="https://github.com/user-attachments/assets/d528117a-ef48-4ab0-be8b-9e0b06938fdc" />
+<img width="2880" height="1612" alt="Screenshot 2026-10-24 142928" src="https://github.com/user-attachments/assets/49c0b427-25b1-4a0c-8e94-a62b44735d72" />
+<img width="2880" height="1630" alt="Screenshot 2026-10-24 142912" src="https://github.com/user-attachments/assets/e7e97fea-06f6-44ed-9294-d2fa62b84547" />
+<img width="2880" height="1652" alt="Screenshot 2026-10-24 142421" src="https://github.com/user-attachments/assets/ab287fb4-8b3a-4dbc-8896-03880f70f57d" />
+
